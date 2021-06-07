@@ -1,0 +1,17 @@
+{
+  "name": "vite-memo",
+  "version": "1.0.0",
+  "description": "基于vite的构建框架",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pzl",
+  "license": "ISC"
+}
