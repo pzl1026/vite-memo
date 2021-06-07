@@ -1,0 +1,11 @@
+{
+  "name": "@vm/util",
+  "version": "1.0.0",
+  "description": "通用方法",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pzl",
+  "license": "ISC"
+}

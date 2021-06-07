@@ -3,15 +3,25 @@
   "version": "1.0.0",
   "description": "基于vite的构建框架",
   "main": "index.js",
-  "directories": {
-    "example": "example"
+  "private": true,
+  "bin": {
+    "vm": "packages/bin/index.js"
   },
   "workspaces": [
     "packages/*"
   ],
+  "directories": {
+    "example": "example"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "pzl",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@vitejs/plugin-legacy": "^1.4.1",
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vue/compiler-sfc": "^3.0.11",
+    "vite": "^2.3.6"
+  }
 }

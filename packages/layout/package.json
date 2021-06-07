@@ -1,0 +1,11 @@
+{
+  "name": "@vm/layout",
+  "version": "1.0.0",
+  "description": "layout",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pzl",
+  "license": "ISC"
+}
