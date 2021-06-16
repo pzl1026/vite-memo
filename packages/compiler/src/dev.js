@@ -7,7 +7,7 @@ const { getEnvConf, getViteConf } = require('./helper');
 (async () => {
   const envConf = getEnvConf();
   const viteConf = getViteConf();
-  console.log(viteConf, 'viteConf');
+
   const server = await createServer(
     Object.assign(
       {},

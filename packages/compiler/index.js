@@ -1,3 +1,9 @@
 console.log('complier');
 
-require('./src/dev');
+module.exports = function complier(mode) {
+  if (mode == 'build') {
+    require('./src/build');
+  } else {
+    require('./src/dev');
+  }
+};

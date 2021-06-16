@@ -1,11 +1,11 @@
 {
-  "name": "vite-memo",
+  "name": "evam",
   "version": "1.0.0",
   "description": "基于vite的构建框架",
   "main": "index.js",
   "private": true,
   "bin": {
-    "vm": "packages/bin/index.js"
+    "evam": "packages/bin/index.js"
   },
   "workspaces": [
     "packages/*"
@@ -23,6 +23,7 @@
     "@vitejs/plugin-vue": "^1.2.3",
     "@vue/compiler-sfc": "^3.0.11",
     "dotenv": "^10.0.0",
+    "minimist": "^1.2.5",
     "vite": "^2.3.6",
     "vite-plugin-mock": "^2.7.2"
   }
