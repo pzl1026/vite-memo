@@ -5,23 +5,25 @@ const chalk = require('chalk');
 
 module.exports = function () {
   let conf;
+  let err;
   return {
     name: 'copy-ftp', // 必须的，将会显示在 warning 和 error 中
 
     config(config, env) {
-      console.log(config, env, 'config');
       conf = config;
     },
 
-    // configureServer(_server) {
-    //   server = _server;
-    // },
-
-    buildEnd() {
-      console.log('buildEnd');
+    buildEnd(error) {
+      if (error) {
+        err = error;
+      }
     },
 
     closeBundle() {
+      if (err) {
+        return;
+      }
+
       fs.copy(
         path.join(process.cwd(), conf.build.outDir, '/index.html'),
         path.join(process.cwd(), '/view/index.html')
