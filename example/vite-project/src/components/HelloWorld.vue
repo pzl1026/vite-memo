@@ -16,14 +16,18 @@
   </p>
 </template>
 
-<script setup>
-import { defineProps, reactive } from 'vue'
+<script>
+import { reactive } from 'vue'
 
-defineProps({
-  msg: String
-})
-
-const state = reactive({ count: 0 })
+export default {
+  props: ['msg'],
+  setup() {
+    const state = reactive({ count: 0 })
+    return {
+      state
+    }
+  }
+}
 </script>
 
 <style scoped>

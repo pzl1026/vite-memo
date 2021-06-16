@@ -1,13 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <img alt="Vue logo" src="@/assets/logo.png" />
+  <HelloWorld msg="Hello Vue 32 + Vite" />
 </template>
 
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-
+<script>
+import HelloWorld from '@/components/HelloWorld.vue'
+import axios from 'axios';
 // This starter template is using Vue 3 experimental <script setup> SFCs
 // Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
+
+export default {
+  components: {
+    HelloWorld
+  },
+
+  setup() {
+    console.log(import.meta.env, 'import.meta.env');
+    console.log(VITE_APP_TITLE, 'VITE_APP_TITLE');
+    // axios.get('/api', {params: 'aaa'}).then(res => {
+    //   console.log(res, 'resss')
+    // })
+  }
+}
 </script>
 
 <style>
