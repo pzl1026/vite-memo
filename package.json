@@ -19,12 +19,22 @@
   "author": "pzl",
   "license": "ISC",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "@vitejs/plugin-legacy": "^1.4.1",
     "@vitejs/plugin-vue": "^1.2.3",
     "@vue/compiler-sfc": "^3.0.11",
+    "chalk": "^4.1.1",
     "dotenv": "^10.0.0",
+    "fs-extra": "^10.0.0",
     "minimist": "^1.2.5",
+    "node-emoji": "^1.10.0",
+    "ora": "^5.4.1",
     "vite": "^2.3.6",
-    "vite-plugin-mock": "^2.7.2"
+    "vite-plugin-mock": "^2.7.2",
+    "vue": "^3.1.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.5"
   }
 }
