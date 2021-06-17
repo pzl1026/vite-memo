@@ -19,7 +19,6 @@ const getComEnvConf = (conf) => {
 const getModeConf = (conf, env) => {
   const envUpper = env.toUpperCase();
   const comConf = getComEnvConf(conf);
-
   let o = {};
   for (let [k, v] of Object.entries(conf)) {
     if (k.indexOf(envUpper + '_') > -1) {
@@ -70,6 +69,13 @@ const getViteConf = (env) => {
   }
 };
 
+// 将所有命令params加上 JSON.stringify
+const params2Stringify = (params) => {
+  for (let [k, v] of Object.entries(params)) {
+    params[k] = JSON.stringify(v);
+  }
+};
+
 // 去除JSON.stringify的双引号
 const trimQuotation = (str) => {
   return str.replace(/(\'|\")/g, '');
@@ -111,4 +117,10 @@ const merge = (...args) => {
   return config;
 };
 
-module.exports = { getEnvConf, getViteConf, merge, trimQuotation };
+module.exports = {
+  getEnvConf,
+  getViteConf,
+  merge,
+  trimQuotation,
+  params2Stringify,
+};

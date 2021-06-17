@@ -1,6 +1,12 @@
 const path = require('path');
 const { build } = require('vite');
-const { getEnvConf, getViteConf, merge, trimQuotation } = require('./helper');
+const {
+  getEnvConf,
+  getViteConf,
+  merge,
+  trimQuotation,
+  params2Stringify,
+} = require('./helper');
 const copyFtp = require('./plugins/copyFtp');
 const performance = require('./plugins/performance');
 const comConf = require('./common');
@@ -8,12 +14,15 @@ const comConf = require('./common');
 module.exports = async (params) => {
   const envConf = getEnvConf('build');
   const viteConf = getViteConf('build');
+  params2Stringify(params);
+
   const conf = merge(
     {
       root: path.resolve(process.cwd()),
       plugins: [copyFtp(), performance()],
       define: {
         ...envConf,
+        ...params,
       },
       build: {
         outDir: 'output',
