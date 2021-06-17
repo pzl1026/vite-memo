@@ -20,10 +20,7 @@ module.exports = async (params) => {
     {
       root: path.resolve(process.cwd()),
       plugins: [copyFtp(), performance()],
-      define: {
-        ...envConf,
-        ...params,
-      },
+      define: Object.assign({}, envConf, params),
       build: {
         outDir: 'output',
         assetsDir: `static/${trimQuotation(envConf.STATIC_DIR)}`,

@@ -85,7 +85,7 @@ const getCustomConf = () => {
 // 将所有命令params加上 JSON.stringify
 const params2Stringify = (params) => {
   for (let [k, v] of Object.entries(params)) {
-    params[k] = JSON.stringify(v);
+    params[k.toUpperCase()] = JSON.stringify(v);
   }
 };
 
