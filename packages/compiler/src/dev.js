@@ -2,7 +2,7 @@ const { createServer } = require('vite');
 const { getEnvConf, getViteConf, merge } = require('./helper');
 const comConf = require('./common');
 
-(async () => {
+module.exports = async (params) => {
   const envConf = getEnvConf('dev');
   const viteConf = getViteConf('dev');
   const conf = merge(
@@ -22,4 +22,4 @@ const comConf = require('./common');
 
   const server = await createServer(conf);
   await server.listen();
-})();
+};

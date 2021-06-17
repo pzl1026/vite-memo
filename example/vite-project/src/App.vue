@@ -15,8 +15,8 @@
     },
 
     setup() {
-      // console.log(import.meta.env, 'import.meta.env');
-      // console.log(VITE_APP_TITLE, 'VITE_APP_TITLE');
+      console.log(import.meta.env, 'import.meta.env');
+      console.log(VITE_APP_TITLE, 'VITE_APP_TITLE');
       // if (import.meta.hot) {
       //   import.meta.hot.on('special-update', (data) => {
       //     // 执行自定义更新

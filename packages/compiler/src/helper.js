@@ -26,8 +26,6 @@ const getModeConf = (conf, env) => {
       o[k] = typeof v == 'string' ? JSON.stringify(v) : v;
     }
   }
-  console.log(conf, envUpper, o, 'ooooooo');
-  console.log(Object.assign({}, comConf, o), 'hhdhdh');
   return Object.assign({}, comConf, o);
 };
 

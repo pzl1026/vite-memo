@@ -5,7 +5,7 @@ const copyFtp = require('./plugins/copyFtp');
 const performance = require('./plugins/performance');
 const comConf = require('./common');
 
-(async () => {
+module.exports = async (params) => {
   const envConf = getEnvConf('build');
   const viteConf = getViteConf('build');
   const conf = merge(
@@ -17,7 +17,7 @@ const comConf = require('./common');
       },
       build: {
         outDir: 'output',
-        assetsDir: `static/${trimQuotation(envConf.BUILD_STATIC_DIR)}`,
+        assetsDir: `static/${trimQuotation(envConf.STATIC_DIR)}`,
         // base: '/foo/',
         // rollupOptions: {
         // input: '/src/main.js',
@@ -37,4 +37,4 @@ const comConf = require('./common');
   );
 
   await build(conf);
-})();
+};

@@ -10,15 +10,14 @@ function getCommanderParams() {
     commander,
     params: argv,
   };
-  return commander;
 }
 
 const { commander, params } = getCommanderParams();
 
 switch (commander) {
   case 'build':
-    require('@vm/compiler')('build');
+    require('@vm/compiler')('build', params);
     break;
   default:
-    require('@vm/compiler')();
+    require('@vm/compiler')('dev', params);
 }

@@ -1,11 +1,14 @@
 module.exports = {
   viteChain: {
-    // resolve: {
-    //   alias: {
-    //     '@': '/src',
-    //   },
-    // },
     dev: {},
     build: {},
+  },
+  linkEnv: {
+    st1: {
+      '/api': 'http://st1-manage.mingqijia.com/',
+    },
+    st2: {
+      '/api': 'http://st2-manage.mingqijia.com/',
+    },
   },
 };

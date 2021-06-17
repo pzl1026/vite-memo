@@ -1,14 +1,15 @@
 {
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "evam build",
+    "build": "evam build -e st1",
     "serve": "vite preview",
-    "start": "evam"
+    "start": "evam -e st1"
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "moment": "^2.29.1",
     "vite": "^2.3.7",
-    "vue": "^3.0.5"
+    "vue": "^3.0.5",
+    "vue-router": "^3.5.1"
   }
 }

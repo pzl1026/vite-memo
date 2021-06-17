@@ -6,6 +6,8 @@ module.exports = {
   resolve: {
     alias: {
       '@': '/src',
+      // vue: 'vue/dist/vue.esm-browser.js',
+      // axios: 'axios/dist/axios.js',
     },
   },
   esbuild: {
