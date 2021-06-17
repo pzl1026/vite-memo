@@ -96,7 +96,7 @@ const trimQuotation = (str) => {
 
 // 处理联调环境的linkEnv
 const proxyLink = (linkEnv, params) => {
-  let proxyApi = linkEnv[params.e];
+  let proxyApi = linkEnv[trimQuotation(params.e)];
   let proxy = {};
 
   for (let [k, v] of Object.entries(proxyApi)) {
