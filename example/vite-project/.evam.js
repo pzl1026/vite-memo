@@ -1,9 +1,11 @@
 module.exports = {
   viteChain: {
-    resolve: {
-      alias: {
-        '@': '/src',
-      },
-    },
+    // resolve: {
+    //   alias: {
+    //     '@': '/src',
+    //   },
+    // },
+    dev: {},
+    build: {},
   },
 };
