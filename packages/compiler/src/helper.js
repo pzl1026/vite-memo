@@ -69,6 +69,19 @@ const getViteConf = (env) => {
   }
 };
 
+// 获取自定义配置
+const getCustomConf = () => {
+  let notCustomConf = ['viteChain'];
+  const allConf = require(`${cwd}/.evam.js`);
+  let customConf = {};
+  for (let [k, v] of Object.entries(allConf)) {
+    if (!notCustomConf.includes(k)) {
+      customConf[k] = v;
+    }
+  }
+  return customConf;
+};
+
 // 将所有命令params加上 JSON.stringify
 const params2Stringify = (params) => {
   for (let [k, v] of Object.entries(params)) {
@@ -79,6 +92,25 @@ const params2Stringify = (params) => {
 // 去除JSON.stringify的双引号
 const trimQuotation = (str) => {
   return str.replace(/(\'|\")/g, '');
+};
+
+// 处理联调环境的linkEnv
+const proxyLink = (linkEnv, params) => {
+  let proxyApi = linkEnv[params.e];
+  let proxy = {};
+
+  for (let [k, v] of Object.entries(proxyApi)) {
+    if (typeof v == 'string') {
+      proxy[k] = {
+        target: v,
+        changeOrigin: true,
+      };
+    } else {
+      proxy[k] = v;
+    }
+  }
+
+  return proxy;
 };
 
 // vite config merge
@@ -123,4 +155,6 @@ module.exports = {
   merge,
   trimQuotation,
   params2Stringify,
+  getCustomConf,
+  proxyLink,
 };

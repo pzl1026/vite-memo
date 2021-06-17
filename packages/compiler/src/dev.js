@@ -4,6 +4,8 @@ const {
   getViteConf,
   merge,
   params2Stringify,
+  getCustomConf,
+  proxyLink,
 } = require('./helper');
 const comConf = require('./common');
 
@@ -11,6 +13,8 @@ module.exports = async (params) => {
   const envConf = getEnvConf('dev');
   const viteConf = getViteConf('dev');
   params2Stringify(params);
+  const customConf = getCustomConf();
+  const proxy = proxyLink(customConf.linkEnv, params);
 
   const conf = merge(
     {
@@ -18,6 +22,7 @@ module.exports = async (params) => {
       server: {
         port: 8090,
         open: '/index.html',
+        proxy,
       },
       define: {
         ...envConf,
