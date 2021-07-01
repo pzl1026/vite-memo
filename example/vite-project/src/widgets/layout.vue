@@ -19,7 +19,15 @@
               @click="() => (collapsed = !collapsed)"
             />
           </a-col>
-          <a-col :span="22"> </a-col>
+          <a-col :span="22">
+            <a-menu mode="horizontal">
+              <a-menu-item v-for="m in modules" :key="m.name">
+                <router-link :to="m.path">
+                  {{ m.meta.title }}
+                </router-link>
+              </a-menu-item>
+            </a-menu>
+          </a-col>
           <a-col :span="1" class="mqj-avatar">
             <a-dropdown>
               <a href="javascript:;">
@@ -102,7 +110,7 @@
       // // 如果使用 TypeScript，请添加 @ts-ignore
       // ...RouterLink.props,
       // inactiveClass: String,
-      to: Object,
+      // to: Object,
     },
     components: {
       MenuFoldOutlined,
@@ -115,11 +123,12 @@
     setup(props, context) {
       const internalInstance = getCurrentInstance();
       const gvm = internalInstance.appContext.config.globalProperties;
-      const menuList = gvm.routes;
-
+      const modules = gvm.routes;
+      console.log(modules, 'modules');
       const state = reactive({
         collapsed: false,
-        menuList,
+        menuList: [],
+        modules,
         breads: [],
         recentList: [],
       });
@@ -132,6 +141,11 @@
       watch(
         () => gvm.$route,
         (val, oldVal) => {
+          console.log(val, 'vass');
+          let currModule = gvm.getCurrentModuleName(val);
+          if (currModule) {
+            state.menuList = currModule.children;
+          }
           state.breads = gvm.getBreadcrumbs(val.matched, val.params);
           state.recentList = gvm.getRecentList();
         }

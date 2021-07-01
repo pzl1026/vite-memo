@@ -15,7 +15,9 @@
     <a-menu-item :key="item.path" v-else>
       <component :is="item.meta.icon"></component>
 
-      <router-link :to="item.toLink">{{ item.meta.title }}</router-link>
+      <router-link :to="item.toLink">
+        {{ item.meta.title }}
+      </router-link>
     </a-menu-item>
   </template>
 </template>

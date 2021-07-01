@@ -5,6 +5,7 @@ import Info from '../components/info.vue';
 export default {
   path: '/module1',
   component: Module1,
+  name: 'module1',
   meta: {
     title: 'module1',
     icon: 'MailOutlined',
@@ -16,6 +17,15 @@ export default {
       },
       path: 'module1children',
       component: Module1Children,
+      children: [
+        {
+          meta: {
+            title: 'module1children1',
+          },
+          path: 'module1children1',
+          component: Info,
+        },
+      ],
     },
     {
       meta: {

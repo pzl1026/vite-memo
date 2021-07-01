@@ -3,23 +3,27 @@ const RECENT_COUNT = 10;
 
 class routeHelper {
   constructor(routes = []) {
-    // this.moduleName = this.getModuleName(routes);
+    this.currModule = {};
     this.routes = this.nestRoutes(routes);
     this.breads = [];
-    console.log(this.routes);
+
+    console.log(this.routes, 'routesss');
   }
 
   // 模块名称
-  getModuleName(routes) {}
+  getCurrentModuleName(route) {
+    this.currModule = route.matched[0];
+    return route.matched[0];
+  }
 
   // 将path进行嵌套化
   nestRoutes(routes, parentPath = '', parent) {
     return routes.map((r) => {
-      r.toLink = parentPath ? `${parentPath}/${r.path}` : '';
+      r.toLink = parentPath ? `${parentPath}/${r.path}` : r.path;
       r.parents = parent ? [...parent.parents, parent] : [];
 
       if (r.children && r.children.length > 0) {
-        this.nestRoutes(r.children, r.path, r);
+        this.nestRoutes(r.children, r.toLink, r);
       }
       return r;
     });
