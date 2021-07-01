@@ -14,7 +14,7 @@ class routeHelper {
       r.toLink = parentPath ? `${parentPath}/${r.path}` : '';
       r.parents = parent ? [...parent.parents, parent] : [];
       // r.breadcrumbs = this.getBreadcrumbs([...r.parents,r])
-  
+
       if (r.children && r.children.length > 0) {
         this.nestRoutes(r.children, r.path, r);
       }
@@ -23,9 +23,19 @@ class routeHelper {
   }
 
   // 生成面包屑
-  getBreadcrumbs(breads) {
-    return breads.map((b) => {
-      return {};
+  getBreadcrumbs(breads, params) {
+    return breads.map((item) => {
+      if (item.path.indexOf(':') > -1) {
+        item.showPath = item.path.replace(/\:[a-zA-Z0-9]{1,}/g, (a, b) => {
+          let paramStr = item.path.substring(b);
+          let [, paramName] = paramStr.split(':');
+
+          return params[paramName];
+        });
+      } else {
+        item.showPath = item.path;
+      }
+      return item;
     });
   }
 
