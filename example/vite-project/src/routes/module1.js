@@ -14,6 +14,7 @@ export default {
     {
       meta: {
         title: 'module1children',
+        icon: 'MailOutlined',
       },
       path: 'module1children',
       component: Module1Children,

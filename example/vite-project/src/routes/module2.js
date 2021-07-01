@@ -13,6 +13,7 @@ export default {
     {
       meta: {
         title: 'module2children',
+        icon: 'PieChartOutlined',
       },
       path: 'module2children',
       component: Module2Children,

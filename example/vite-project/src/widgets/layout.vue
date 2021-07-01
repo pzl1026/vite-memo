@@ -1,5 +1,8 @@
 <template>
-  <a-layout class="mqj-layout">
+  <template v-if="isLogin">
+    <Login />
+  </template>
+  <a-layout class="mqj-layout" v-else>
     <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
       <div class="logo" />
       <MenuList :menu-list="menuList" />
@@ -104,6 +107,7 @@
   //   RouterView,
   // } from 'vue-router';
   import MenuList from './components/menuList.vue';
+  import Login from './components/login.vue';
 
   export default defineComponent({
     props: {
@@ -118,19 +122,21 @@
       UserOutlined,
       DownOutlined,
       MenuList,
+      Login,
     },
 
     setup(props, context) {
       const internalInstance = getCurrentInstance();
       const gvm = internalInstance.appContext.config.globalProperties;
       const modules = gvm.routes;
-      console.log(modules, 'modules');
+
       const state = reactive({
         collapsed: false,
         menuList: [],
         modules,
         breads: [],
         recentList: [],
+        isLogin: false,
       });
 
       const toggleCollapsed = () => {
@@ -141,15 +147,17 @@
       watch(
         () => gvm.$route,
         (val, oldVal) => {
-          console.log(val, 'vass');
-          let currModule = gvm.getCurrentModuleName(val);
-          console.log(currModule, 'currModule');
-          if (currModule) {
-            state.menuList = currModule.children;
-            console.log(state.menuList, 'state.menuList');
+          if (gvm.$route.fullPath.indexOf('/login') > -1) {
+            state.isLogin = true;
+          } else {
+            state.isLogin = false;
+            let currModule = gvm.getCurrentModuleName(val);
+            if (currModule) {
+              state.menuList = currModule.children;
+            }
+            state.breads = gvm.getBreadcrumbs(val.matched, val.params);
+            state.recentList = gvm.getRecentList();
           }
-          state.breads = gvm.getBreadcrumbs(val.matched, val.params);
-          state.recentList = gvm.getRecentList();
         }
       );
 
