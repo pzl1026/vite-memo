@@ -1,11 +1,11 @@
 const MQJ_RECENT = '_mqj_recent';
+const RECENT_COUNT = 10;
 
 class routeHelper {
   constructor(routes = []) {
     // this.moduleName = this.getModuleName(routes);
     this.routes = this.nestRoutes(routes);
     this.breads = [];
-    // localStorage.setItem(MQJ_RECENT, JSON.stringify(this.breads));
     console.log(this.routes);
   }
 
@@ -63,7 +63,7 @@ class routeHelper {
     } else {
       mqjRecent = [o];
     }
-
+    mqjRecent = mqjRecent.slice(0, RECENT_COUNT);
     localStorage.setItem(MQJ_RECENT, JSON.stringify(mqjRecent));
     return mqjRecent;
   }
