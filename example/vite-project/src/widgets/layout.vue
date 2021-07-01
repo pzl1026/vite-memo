@@ -143,8 +143,10 @@
         (val, oldVal) => {
           console.log(val, 'vass');
           let currModule = gvm.getCurrentModuleName(val);
+          console.log(currModule, 'currModule');
           if (currModule) {
             state.menuList = currModule.children;
+            console.log(state.menuList, 'state.menuList');
           }
           state.breads = gvm.getBreadcrumbs(val.matched, val.params);
           state.recentList = gvm.getRecentList();

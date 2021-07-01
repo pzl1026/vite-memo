@@ -44,6 +44,13 @@
       });
 
       watch(
+        () => props.menuList,
+        (val, oldVal) => {
+          state.menuList = val;
+        }
+      );
+
+      watch(
         () => state.openKeys,
         (val, oldVal) => {
           state.preOpenKeys = oldVal;

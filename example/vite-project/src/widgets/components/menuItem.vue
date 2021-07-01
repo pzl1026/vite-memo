@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  import { defineComponent, reactive, toRefs } from 'vue';
+  import { defineComponent, reactive, toRefs, watch } from 'vue';
   import { PieChartOutlined, MailOutlined } from '@ant-design/icons-vue';
 
   export default defineComponent({
@@ -37,6 +37,13 @@
       const state = reactive({
         item: props.item,
       });
+
+      watch(
+        () => props.item,
+        (val, oldVal) => {
+          state.item = val;
+        }
+      );
 
       return {
         ...toRefs(state),
