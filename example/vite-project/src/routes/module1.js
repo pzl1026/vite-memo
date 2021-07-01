@@ -7,6 +7,7 @@ export default {
   component: Module1,
   meta: {
     title: 'module1',
+    icon: 'MailOutlined',
   },
   children: [
     {
@@ -19,6 +20,7 @@ export default {
     {
       meta: {
         title: 'info',
+        hidden: true,
       },
       path: 'info/:id',
       component: Info,

@@ -11,7 +11,7 @@
 
 <script>
   import HelloWorld from '@/components/HelloWorld.vue';
-  import Layout from './layout.vue';
+  import Layout from './widgets/layout.vue';
   import axios from 'axios';
   // This starter template is using Vue 3 experimental <script setup> SFCs
   // Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
@@ -19,7 +19,7 @@
   export default {
     components: {
       HelloWorld,
-      Layout
+      Layout,
     },
 
     setup() {
