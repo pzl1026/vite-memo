@@ -1,7 +1,11 @@
+const MQJ_RECENT = '_mqj_recent';
+
 class routeHelper {
   constructor(routes = []) {
     // this.moduleName = this.getModuleName(routes);
     this.routes = this.nestRoutes(routes);
+    this.breads = [];
+    // localStorage.setItem(MQJ_RECENT, JSON.stringify(this.breads));
     console.log(this.routes);
   }
 
@@ -13,7 +17,6 @@ class routeHelper {
     return routes.map((r) => {
       r.toLink = parentPath ? `${parentPath}/${r.path}` : '';
       r.parents = parent ? [...parent.parents, parent] : [];
-      // r.breadcrumbs = this.getBreadcrumbs([...r.parents,r])
 
       if (r.children && r.children.length > 0) {
         this.nestRoutes(r.children, r.path, r);
@@ -24,7 +27,7 @@ class routeHelper {
 
   // 生成面包屑
   getBreadcrumbs(breads, params) {
-    return breads.map((item) => {
+    this.breads = breads.map((item) => {
       if (item.path.indexOf(':') > -1) {
         item.showPath = item.path.replace(/\:[a-zA-Z0-9]{1,}/g, (a, b) => {
           let paramStr = item.path.substring(b);
@@ -37,6 +40,32 @@ class routeHelper {
       }
       return item;
     });
+    return this.breads;
+  }
+
+  // 获取最近访问列表
+  getRecentList() {
+    let mqjRecent = localStorage.getItem(MQJ_RECENT);
+    let o = {
+      title: this.breads.map((m) => m.meta.title).join('/'),
+      showPath: this.breads[this.breads.length - 1].showPath,
+    };
+    if (mqjRecent) {
+      mqjRecent = JSON.parse(mqjRecent);
+      try {
+        let isset = mqjRecent.find((m) => m.showPath == o.showPath);
+        if (!isset) {
+          mqjRecent.unshift(o);
+        }
+      } catch (err) {
+        throw err;
+      }
+    } else {
+      mqjRecent = [o];
+    }
+
+    localStorage.setItem(MQJ_RECENT, JSON.stringify(mqjRecent));
+    return mqjRecent;
   }
 
   // 获取当前模块的路由

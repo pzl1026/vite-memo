@@ -57,14 +57,13 @@
             </a>
             <template #overlay>
               <a-menu>
-                <a-menu-item>
-                  <a href="javascript:;">1st menu item</a>
-                </a-menu-item>
-                <a-menu-item>
-                  <a href="javascript:;">2nd menu item</a>
-                </a-menu-item>
-                <a-menu-item>
-                  <a href="javascript:;">3rd menu item</a>
+                <a-menu-item v-for="link in recentList" :key="link.showPath">
+                  <router-link
+                    :to="link.showPath"
+                    style="display: inline-block; width: 100%"
+                  >
+                    {{ link.title }}
+                  </router-link>
                 </a-menu-item>
               </a-menu>
             </template>
@@ -122,6 +121,7 @@
         collapsed: false,
         menuList,
         breads: [],
+        recentList: [],
       });
 
       const toggleCollapsed = () => {
@@ -133,6 +133,7 @@
         () => gvm.$route,
         (val, oldVal) => {
           state.breads = gvm.getBreadcrumbs(val.matched, val.params);
+          state.recentList = gvm.getRecentList();
         }
       );
 
