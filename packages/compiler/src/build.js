@@ -23,7 +23,7 @@ module.exports = async (params) => {
       define: Object.assign({}, envConf, params),
       build: {
         outDir: 'output',
-        assetsDir: `static/${trimQuotation(envConf.STATIC_DIR)}`,
+        assetsDir: `static/${trimQuotation(envConf.STATIC_DIR || '')}`,
         // base: '/foo/',
         // rollupOptions: {
         // input: '/src/main.js',

@@ -86,11 +86,12 @@ const getCustomConf = () => {
 const params2Stringify = (params) => {
   for (let [k, v] of Object.entries(params)) {
     params[k.toUpperCase()] = JSON.stringify(v);
+    delete params[k.toLowerCase()];
   }
 };
 
 // 去除JSON.stringify的双引号
-const trimQuotation = (str) => {
+const trimQuotation = (str = '') => {
   return str.replace(/(\'|\")/g, '');
 };
 
@@ -98,6 +99,8 @@ const trimQuotation = (str) => {
 const proxyLink = (linkEnv, params) => {
   let proxyApi = linkEnv[trimQuotation(params.e)];
   let proxy = {};
+
+  if (!proxyApi) return proxy;
 
   for (let [k, v] of Object.entries(proxyApi)) {
     if (typeof v == 'string') {

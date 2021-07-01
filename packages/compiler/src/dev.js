@@ -20,7 +20,7 @@ module.exports = async (params) => {
     {
       // 任何合法的用户配置选项，加上 `mode` 和 `configFile`
       server: {
-        port: 8090,
+        port: 8080,
         open: '/index.html',
         proxy,
       },

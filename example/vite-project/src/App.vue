@@ -1,10 +1,17 @@
 <template>
-  <img alt="Vue logo" src="@/assets/logo.png" />
+  <!-- <img alt="Vue logo" src="@/assets/logo.png" />
   <HelloWorld msg="Hello Vue 32 + Vite" />
+  <router-link to="/module1">module1</router-link>
+  <br />
+  <router-link to="/module2">module2</router-link>
+
+  <router-view></router-view> -->
+  <Layout />
 </template>
 
 <script>
   import HelloWorld from '@/components/HelloWorld.vue';
+  import Layout from './layout.vue';
   import axios from 'axios';
   // This starter template is using Vue 3 experimental <script setup> SFCs
   // Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
@@ -12,6 +19,7 @@
   export default {
     components: {
       HelloWorld,
+      Layout
     },
 
     setup() {
@@ -35,8 +43,8 @@
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
+    /* text-align: center; */
+    /* color: #2c3e50; */
+    /* margin-top: 60px; */
   }
 </style>
