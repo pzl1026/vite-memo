@@ -23,7 +23,7 @@
             />
           </a-col>
           <a-col :span="22">
-            <a-menu mode="horizontal">
+            <a-menu mode="horizontal" theme="dark">
               <a-menu-item v-for="m in modules" :key="m.name">
                 <router-link :to="m.path">
                   {{ m.meta.title }}
@@ -118,11 +118,12 @@
     setup(props, context) {
       const internalInstance = getCurrentInstance();
       const gvm = internalInstance.appContext.config.globalProperties;
-      const modules = gvm.routes;
+      const modules = gvm.rh.modules;
 
       const state = reactive({
         collapsed: false,
-        menuList: gvm.$route.matched[0].children || [],
+        // menuList: gvm.$route.matched[0].children || [],
+        menuList: [],
         modules,
         breads: [],
         recentList: [],
@@ -137,19 +138,18 @@
       watch(
         () => gvm.$route,
         (val, oldVal) => {
-          console.log(val, 7777);
           if (gvm.$route.fullPath.indexOf('/login') > -1) {
             state.isLogin = true;
           } else {
             state.isLogin = false;
-            let currModule = gvm.getCurrentModuleName(val);
-            console.log(currModule, 'ddd');
+            let currModule = gvm.rh.getCurrentModuleName(val);
             if (currModule) {
-              state.menuList = currModule.children;
-              console.log(state.menuList, ' state.menuList');
+              state.menuList = gvm.rh.originRoutes.find(
+                (m) => m.name == currModule.name
+              ).children;
             }
-            state.breads = gvm.getBreadcrumbs(val.matched, val.params);
-            state.recentList = gvm.getRecentList();
+            state.breads = gvm.rh.getBreadcrumbs(val.matched, val.params);
+            state.recentList = gvm.rh.getRecentList();
           }
         }
       );
@@ -168,7 +168,7 @@
 
     .mqj-layout-header {
       padding: 0 16px;
-      background: #fff;
+      background: #001529;
     }
 
     .mqj-avatar,
@@ -183,10 +183,11 @@
       line-height: 64px;
       cursor: pointer;
       transition: color 0.3s;
+      color: #fff;
     }
 
     .trigger:hover {
-      color: #1890ff;
+      // color: #1890ff;
     }
 
     .logo {

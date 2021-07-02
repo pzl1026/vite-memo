@@ -14,7 +14,7 @@ const router = createRouter({
 });
 
 const app = createApp(App);
-app.config.globalProperties = rh;
+app.config.globalProperties = { rh };
 app.use(router);
 app.use(Antd);
 

@@ -1,12 +1,18 @@
+import { cloneDeep } from 'lodash';
+
 const MQJ_RECENT = '_mqj_recent';
 const RECENT_COUNT = 10;
-
+import routesList from '@/routes';
 class routeHelper {
   constructor(routes = []) {
+    this.originRoutes = routesList;
     this.currModule = {};
-    this.routes = this.nestRoutes(routes);
-    this.breads = [];
+    this.modules = [];
+    this.routes = [];
 
+    this.breads = [];
+    this.nestRoutes(routes);
+    this.getModules(routes);
     console.log(this.routes, 'routesss');
   }
 
@@ -16,16 +22,30 @@ class routeHelper {
     return route.matched[0];
   }
 
+  // 获取模块
+  getModules(routes) {
+    this.modules = routes.map((m) => {
+      return {
+        path: m.path,
+        name: m.name,
+        meta: m.meta,
+      };
+    });
+  }
+
   // 将path进行嵌套化
-  nestRoutes(routes, parentPath = '', parent) {
-    return routes.map((r) => {
-      r.toLink = parentPath ? `${parentPath}/${r.path}` : r.path;
+  nestRoutes(routes, parentPath = '', parent, moduleName) {
+    routes.forEach((r) => {
+      r.toLink = parentPath ? `${parentPath}${r.path}` : r.path;
       r.parents = parent ? [...parent.parents, parent] : [];
+      // r.path = r.toLink;
+      r.meta.moduleName = moduleName || r.name;
+      this.routes.push(r);
 
       if (r.children && r.children.length > 0) {
-        this.nestRoutes(r.children, r.toLink, r);
+        this.nestRoutes(r.children, r.toLink, r, moduleName || r.name);
+        // delete r.children;
       }
-      return r;
     });
   }
 

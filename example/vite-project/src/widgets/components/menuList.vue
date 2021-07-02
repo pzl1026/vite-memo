@@ -21,6 +21,7 @@
     AppstoreOutlined,
   } from '@ant-design/icons-vue';
   import MenuItem from './menuItem.vue';
+  import { cloneDeep } from 'lodash';
 
   export default {
     props: ['menuList'],
@@ -36,17 +37,33 @@
     },
 
     setup(props, context) {
+      const getMenuList = (menuList) => {
+        return menuList.map((m) => {
+          if (m.children) {
+            m.children = m.children.filter((n) => !n.meta.hidden);
+            if (m.children.length == 0) {
+              m.children = undefined;
+            } else {
+              getMenuList(m.children);
+            }
+          }
+
+          return m;
+        });
+      };
       const state = reactive({
         selectedKeys: ['1'],
         openKeys: ['sub1'],
         preOpenKeys: ['sub1'],
-        menuList: props.menuList,
+        menuList: getMenuList(props.menuList),
       });
+
+      console.log(state.menuList, 'menuList');
 
       watch(
         () => props.menuList,
         (val, oldVal) => {
-          state.menuList = val;
+          state.menuList = getMenuList(val);
         }
       );
 

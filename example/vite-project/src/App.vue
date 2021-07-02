@@ -6,8 +6,8 @@
   <router-link to="/module2">module2</router-link>
 
   <router-view></router-view> -->
-  <!-- <Layout /> -->
-  <router-view></router-view>
+  <Layout />
+  <!-- <router-view></router-view> -->
 </template>
 
 <script>

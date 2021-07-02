@@ -1,9 +1,9 @@
 import Banner from '@/pages/banner/index.vue';
-import Layout from '@/widgets/layout.vue';
+import Info from '@/pages/info/index.vue';
 
 export default {
   path: '/cms',
-  component: Layout,
+  component: Banner,
   name: 'cms',
   meta: {
     title: 'CMS',
@@ -12,11 +12,21 @@ export default {
   children: [
     {
       meta: {
-        title: 'banner',
+        title: 'Banner',
         icon: 'MailOutlined',
       },
-      path: 'banner',
+      path: '/banner',
       component: Banner,
+      children: [
+        {
+          meta: {
+            title: 'Info',
+            hidden: true,
+          },
+          path: '/info/:id',
+          component: Info,
+        },
+      ],
     },
   ],
 };
