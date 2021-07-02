@@ -1,10 +1,7 @@
 <template>
-  <a-menu
-    mode="inline"
-    theme="dark"
-    v-model:openKeys="openKeys"
-    v-model:selectedKeys="selectedKeys"
-  >
+  <a-menu mode="inline" theme="dark" :inline-collapsed="collapsed">
+    <!-- v-model:openKeys="openKeys"
+    v-model:selectedKeys="selectedKeys" -->
     <menu-item v-for="item in menuList" :item="item" />
   </a-menu>
 </template>
@@ -56,9 +53,8 @@
         openKeys: ['sub1'],
         preOpenKeys: ['sub1'],
         menuList: getMenuList(props.menuList),
+        collapsed: false,
       });
-
-      console.log(state.menuList, 'menuList');
 
       watch(
         () => props.menuList,

@@ -38,8 +38,8 @@ class routeHelper {
     routes.forEach((r) => {
       r.toLink = parentPath ? `${parentPath}${r.path}` : r.path;
       r.parents = parent ? [...parent.parents, parent] : [];
-      // r.path = r.toLink;
       r.meta.moduleName = moduleName || r.name;
+      r.path = r.toLink;
       this.routes.push(r);
 
       if (r.children && r.children.length > 0) {

@@ -14,10 +14,11 @@
     </a-sub-menu>
     <a-menu-item :key="item.path" v-else>
       <component :is="item.meta.icon"></component>
-
-      <router-link :to="item.toLink">
-        {{ item.meta.title }}
-      </router-link>
+      <span>
+        <router-link :to="item.toLink" style="color: #fff">
+          {{ item.meta.title }}
+        </router-link>
+      </span>
     </a-menu-item>
   </template>
 </template>

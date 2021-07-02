@@ -6,13 +6,13 @@ export default {
   component: Banner,
   name: 'cms',
   meta: {
-    title: 'CMS',
+    title: 'cms',
     icon: 'MailOutlined',
   },
   children: [
     {
       meta: {
-        title: 'Banner',
+        title: 'banner',
         icon: 'MailOutlined',
       },
       path: '/banner',
@@ -27,6 +27,14 @@ export default {
           component: Info,
         },
       ],
+    },
+    {
+      meta: {
+        title: 'banner2',
+        icon: 'MailOutlined',
+      },
+      path: '/banner2',
+      component: Banner,
     },
   ],
 };
