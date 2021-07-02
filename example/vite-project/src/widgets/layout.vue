@@ -102,20 +102,10 @@
     watch,
     getCurrentInstance,
   } from 'vue';
-  // import {
-  //   RouterLink,
-  //   RouterView,
-  // } from 'vue-router';
   import MenuList from './components/menuList.vue';
   import Login from './components/login.vue';
 
   export default defineComponent({
-    props: {
-      // // 如果使用 TypeScript，请添加 @ts-ignore
-      // ...RouterLink.props,
-      // inactiveClass: String,
-      // to: Object,
-    },
     components: {
       MenuFoldOutlined,
       MenuUnfoldOutlined,
@@ -132,7 +122,7 @@
 
       const state = reactive({
         collapsed: false,
-        menuList: [],
+        menuList: gvm.$route.matched[0].children || [],
         modules,
         breads: [],
         recentList: [],
@@ -147,13 +137,16 @@
       watch(
         () => gvm.$route,
         (val, oldVal) => {
+          console.log(val, 7777);
           if (gvm.$route.fullPath.indexOf('/login') > -1) {
             state.isLogin = true;
           } else {
             state.isLogin = false;
             let currModule = gvm.getCurrentModuleName(val);
+            console.log(currModule, 'ddd');
             if (currModule) {
               state.menuList = currModule.children;
+              console.log(state.menuList, ' state.menuList');
             }
             state.breads = gvm.getBreadcrumbs(val.matched, val.params);
             state.recentList = gvm.getRecentList();
