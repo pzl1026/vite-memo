@@ -52,6 +52,7 @@ class routeHelper {
         // delete r.children;
       }
     });
+    console.log('88888888888');
   }
 
   // 生成面包屑
@@ -61,8 +62,10 @@ class routeHelper {
       console.error(`当前路由¥${breads[0].path}不存在！！`);
       return;
     }
-    currentRoute.parents.shift(); //去除当前模块
-    breads = [...currentRoute.parents, ...breads];
+    let parents = [...currentRoute.parents];
+    parents.shift(); //去除当前模块
+    breads = [...parents, ...breads];
+
     this.breads = breads.map((item) => {
       if (item.path.indexOf(':') > -1) {
         item.showPath = item.path.replace(/\:[a-zA-Z0-9]{1,}/g, (a, b) => {

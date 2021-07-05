@@ -1,8 +1,9 @@
 import Dashboard from '@/pages/dashboard/index.vue';
+import ModuleLayout from '@/widgets/moduleLayout.vue';
 
 export default {
   path: '/datacenter',
-  component: Dashboard,
+  component: ModuleLayout,
   name: 'datacenter',
   meta: {
     title: '数据中心',
@@ -10,6 +11,7 @@ export default {
   },
   children: [
     {
+      name: 'dashboard',
       meta: {
         title: 'dashboard',
         icon: 'MailOutlined',
