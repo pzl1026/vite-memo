@@ -111,7 +111,7 @@
     nextTick,
   } from 'vue';
   import MenuList from './components/menuList.vue';
-  import Login from './components/login.vue';
+  import Login from './login.vue';
 
   export default defineComponent({
     components: {
@@ -148,12 +148,16 @@
       watch(
         () => gvm.$route,
         (val, oldVal) => {
-          state.moduleKey = [val.matched[0].meta.moduleName];
-          state.selectedKeys = [val.path];
+          if (val.fullPath == '/') {
+            gvm.$router.push('/cms');
+            return;
+          }
           if (gvm.$route.fullPath.indexOf('/login') > -1) {
             state.isLogin = true;
           } else {
             state.isLogin = false;
+            state.moduleKey = [val.matched[0].meta.moduleName];
+            state.selectedKeys = [val.path];
             let moduleName = gvm.rh.getCurrentModuleName(val);
 
             state.menuList = gvm.rh.originRoutes.find(

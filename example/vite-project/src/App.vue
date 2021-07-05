@@ -1,13 +1,5 @@
 <template>
-  <!-- <img alt="Vue logo" src="@/assets/logo.png" />
-  <HelloWorld msg="Hello Vue 32 + Vite" />
-  <router-link to="/module1">module1</router-link>
-  <br />
-  <router-link to="/module2">module2</router-link>
-
-  <router-view></router-view> -->
   <Layout />
-  <!-- <router-view></router-view> -->
 </template>
 
 <script>
@@ -44,8 +36,5 @@
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* text-align: center; */
-    /* color: #2c3e50; */
-    /* margin-top: 60px; */
   }
 </style>
