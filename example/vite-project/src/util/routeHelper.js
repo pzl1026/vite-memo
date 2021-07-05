@@ -13,7 +13,6 @@ class routeHelper {
     this.breads = [];
     this.nestRoutes(routes);
     this.getModules(routes);
-    console.log(this.routes, 'routesss');
   }
 
   // 模块名称
@@ -39,6 +38,13 @@ class routeHelper {
       r.parents = parent ? [...parent.parents, parent] : [];
       r.meta.moduleName = moduleName || r.name;
       r.path = r.toLink;
+      if (!r.component) {
+        r.component = {
+          template: () => null,
+        };
+        r.meta.beardDisable = true;
+      }
+
       this.routes.push(r);
 
       if (r.children && r.children.length > 0) {
@@ -50,6 +56,13 @@ class routeHelper {
 
   // 生成面包屑
   getBreadcrumbs(breads, params) {
+    let currentRoute = this.routes.find((m) => breads[0].path == m.path);
+    if (!currentRoute) {
+      console.error(`当前路由¥${breads[0].path}不存在！！`);
+      return;
+    }
+    currentRoute.parents.shift(); //去除当前模块
+    breads = [...currentRoute.parents, ...breads];
     this.breads = breads.map((item) => {
       if (item.path.indexOf(':') > -1) {
         item.showPath = item.path.replace(/\:[a-zA-Z0-9]{1,}/g, (a, b) => {

@@ -57,7 +57,10 @@
         <a-col :span="12">
           <a-breadcrumb>
             <a-breadcrumb-item v-for="(bread, k) in breads" :key="bread.path">
-              <router-link v-if="k < breads.length - 1" :to="bread.showPath">
+              <router-link
+                v-if="k < breads.length - 1 && !bread.meta.beardDisable"
+                :to="bread.showPath"
+              >
                 {{ bread.meta.title }}
               </router-link>
               <span v-else> {{ bread.meta.title }} </span>
@@ -105,6 +108,7 @@
     toRefs,
     watch,
     getCurrentInstance,
+    nextTick,
   } from 'vue';
   import MenuList from './components/menuList.vue';
   import Login from './components/login.vue';
@@ -144,8 +148,7 @@
       watch(
         () => gvm.$route,
         (val, oldVal) => {
-          console.log(val, 'uuu');
-          state.moduleKey = [val.matched[0].name];
+          state.moduleKey = [val.matched[0].meta.moduleName];
           state.selectedKeys = [val.path];
           if (gvm.$route.fullPath.indexOf('/login') > -1) {
             state.isLogin = true;

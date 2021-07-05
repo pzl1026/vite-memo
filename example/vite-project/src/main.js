@@ -7,7 +7,7 @@ import RouterHelper from './util/routeHelper';
 import 'ant-design-vue/dist/antd.css';
 
 const rh = new RouterHelper(routesList);
-
+console.log(rh.routes, 'rh.routes');
 const router = createRouter({
   history: createWebHashHistory(),
   routes: rh.routes, // `routes: routes` 的缩写
