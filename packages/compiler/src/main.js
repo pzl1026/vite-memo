@@ -1,5 +1,4 @@
 console.log('main');
-// import routesList from '/Users/pzl/Documents/GitHub/vite-memo/example/vite-project/src/routes/index.js';
 
 import { createApp } from 'vue';
 import { createRouter, createWebHashHistory } from 'vue-router';

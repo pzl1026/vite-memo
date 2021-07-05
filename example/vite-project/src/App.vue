@@ -3,7 +3,6 @@
 </template>
 
 <script>
-  import HelloWorld from '@/components/HelloWorld.vue';
   import Layout from './widgets/layout.vue';
   import axios from 'axios';
   // This starter template is using Vue 3 experimental <script setup> SFCs
@@ -11,7 +10,6 @@
 
   export default {
     components: {
-      HelloWorld,
       Layout,
     },
 

@@ -1,11 +1,14 @@
 const vue = require('@vitejs/plugin-vue');
 const legacy = require('@vitejs/plugin-legacy');
+const path = require('path');
 
 module.exports = {
+  root: __dirname,
   configFile: false,
   resolve: {
     alias: {
-      '@': '/src',
+      // '@': '/src',
+      '@': path.resolve(process.cwd(), 'src'),
       // vue: 'vue/dist/vue.esm-browser.js',
       // axios: 'axios/dist/axios.js',
     },

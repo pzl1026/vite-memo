@@ -8,7 +8,7 @@ const {
   proxyLink,
 } = require('./helper');
 const comConf = require('./common');
-
+console.log(process.cwd(), 'hhh');
 module.exports = async (params) => {
   const envConf = getEnvConf('dev');
   const viteConf = getViteConf('dev');
