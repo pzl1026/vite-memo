@@ -18,8 +18,7 @@ class routeHelper {
 
   // 模块名称
   getCurrentModuleName(route) {
-    this.currModule = route.matched[0];
-    return route.matched[0];
+    return route.matched[0].meta.moduleName;
   }
 
   // 获取模块

@@ -5,7 +5,7 @@
   <a-layout class="mqj-layout" v-else>
     <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
       <div class="logo" />
-      <MenuList :menu-list="menuList" />
+      <MenuList :menu-list="menuList" :selectedKeys="selectedKeys" />
     </a-layout-sider>
     <a-layout>
       <a-layout-header class="mqj-layout-header">
@@ -23,7 +23,11 @@
             />
           </a-col>
           <a-col :span="22">
-            <a-menu mode="horizontal" theme="dark">
+            <a-menu
+              mode="horizontal"
+              theme="dark"
+              v-model:selectedKeys="moduleKey"
+            >
               <a-menu-item v-for="m in modules" :key="m.name">
                 <router-link :to="m.path">
                   {{ m.meta.title }}
@@ -128,26 +132,30 @@
         breads: [],
         recentList: [],
         isLogin: false,
+        selectedKeys: [],
+        openKeys: [],
+        moduleKey: [],
       });
 
       const toggleCollapsed = () => {
         state.collapsed = !state.collapsed;
         // state.openKeys = state.collapsed ? [] : state.preOpenKeys;
       };
-
       watch(
         () => gvm.$route,
         (val, oldVal) => {
+          console.log(val, 'uuu');
+          state.moduleKey = [val.matched[0].name];
+          state.selectedKeys = [val.path];
           if (gvm.$route.fullPath.indexOf('/login') > -1) {
             state.isLogin = true;
           } else {
             state.isLogin = false;
-            let currModule = gvm.rh.getCurrentModuleName(val);
-            if (currModule) {
-              state.menuList = gvm.rh.originRoutes.find(
-                (m) => m.name == currModule.name
-              ).children;
-            }
+            let moduleName = gvm.rh.getCurrentModuleName(val);
+
+            state.menuList = gvm.rh.originRoutes.find(
+              (m) => m.name == moduleName
+            ).children;
             state.breads = gvm.rh.getBreadcrumbs(val.matched, val.params);
             state.recentList = gvm.rh.getRecentList();
           }
@@ -156,7 +164,6 @@
 
       return {
         ...toRefs(state),
-        selectedKeys: ref(['1']),
         toggleCollapsed,
       };
     },

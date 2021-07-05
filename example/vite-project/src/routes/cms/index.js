@@ -1,9 +1,11 @@
 import Banner from '@/pages/banner/index.vue';
+import Banner2 from '@/pages/banner2/index.vue';
 import Info from '@/pages/info/index.vue';
+import ModuleLayout from '@/widgets/moduleLayout.vue';
 
 export default {
   path: '/cms',
-  component: Banner,
+  component: ModuleLayout,
   name: 'cms',
   meta: {
     title: 'cms',
@@ -34,7 +36,7 @@ export default {
         icon: 'MailOutlined',
       },
       path: '/banner2',
-      component: Banner,
+      component: Banner2,
     },
   ],
 };

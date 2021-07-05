@@ -1,5 +1,11 @@
 <template>
-  <a-menu mode="inline" theme="dark" :inline-collapsed="collapsed">
+  <a-menu
+    mode="inline"
+    theme="dark"
+    :inline-collapsed="collapsed"
+    v-model:selectedKeys="selectedKeys"
+  >
+    <!-- v-model:selectedKeys="selectedKeys" -->
     <!-- v-model:openKeys="openKeys"
     v-model:selectedKeys="selectedKeys" -->
     <menu-item v-for="item in menuList" :item="item" />
@@ -21,7 +27,7 @@
   import { cloneDeep } from 'lodash';
 
   export default {
-    props: ['menuList'],
+    props: ['menuList', 'selectedKeys'],
     components: {
       MenuFoldOutlined,
       MenuUnfoldOutlined,
@@ -49,7 +55,7 @@
         });
       };
       const state = reactive({
-        selectedKeys: ['1'],
+        selectedKeys: props.selectedKeys || [],
         openKeys: ['sub1'],
         preOpenKeys: ['sub1'],
         menuList: getMenuList(props.menuList),
@@ -60,6 +66,13 @@
         () => props.menuList,
         (val, oldVal) => {
           state.menuList = getMenuList(val);
+        }
+      );
+
+      watch(
+        () => props.selectedKeys,
+        (val) => {
+          state.selectedKeys = val;
         }
       );
 
