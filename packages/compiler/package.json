@@ -1,19 +1,35 @@
 {
   "name": "@evam/compiler",
   "version": "1.0.0-alpha.1",
-  "description": "构建编译",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "pzl",
+  "description": "构建编译模块",
+  "author": "pzl <‘pzl1026@aliyun.com’>",
+  "homepage": "https://github.com/pzl1026/vite-memo#readme",
   "license": "ISC",
+  "main": "lib/compiler.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pzl1026/vite-memo.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/pzl1026/vite-memo/issues"
+  },
   "dependencies": {
     "@vitejs/plugin-legacy": "^1.4.1",
     "@vitejs/plugin-vue": "^1.2.3",
     "@vue/compiler-sfc": "^3.0.11",
     "ant-design-vue": "^2.1.2",
     "axios": "^0.21.1",
+    "babel-core": "^6.26.3",
     "chalk": "^4.1.1",
     "dotenv": "^10.0.0",
     "fs-extra": "^10.0.0",
