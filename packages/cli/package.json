@@ -28,5 +28,8 @@
   },
   "dependencies": {
     "minimist": "^1.2.5"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
