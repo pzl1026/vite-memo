@@ -1,5 +1,5 @@
 {
-  "name": "@vm/plugins",
+  "name": "@evam/plugins",
   "version": "1.0.0",
   "description": "插件",
   "main": "index.js",

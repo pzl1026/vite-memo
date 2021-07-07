@@ -1,8 +1,11 @@
 {
-  "name": "@vm/bin",
+  "name": "evam",
   "version": "1.0.0",
   "description": "命令文件",
   "main": "index.js",
+  "bin": {
+    "evam": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

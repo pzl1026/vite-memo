@@ -1,5 +1,5 @@
 {
-  "name": "@vm/event-emit",
+  "name": "@evam/event-emit",
   "version": "1.0.0",
   "description": "全局性事件触发",
   "main": "index.js",

@@ -1,5 +1,5 @@
 {
-  "name": "@vm/logger",
+  "name": "@evam/logger",
   "version": "1.0.0",
   "description": "日志",
   "main": "index.js",

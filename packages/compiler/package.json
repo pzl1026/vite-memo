@@ -1,5 +1,5 @@
 {
-  "name": "@vm/compiler",
+  "name": "@evam/compiler",
   "version": "1.0.0",
   "description": "构建编译",
   "main": "index.js",

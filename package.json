@@ -1,12 +1,8 @@
 {
-  "name": "evam",
   "version": "1.0.0",
   "description": "基于vite的构建框架",
   "main": "index.js",
   "private": true,
-  "bin": {
-    "evam": "packages/bin/index.js"
-  },
   "workspaces": [
     "packages/*"
   ],
@@ -22,17 +18,19 @@
     "@vitejs/plugin-legacy": "^1.4.1",
     "@vitejs/plugin-vue": "^1.2.3",
     "@vue/compiler-sfc": "^3.0.11",
-    "ant-design-vue": "^1.7.6",
+    "ant-design-vue": "^2.1.2",
+    "axios": "^0.21.1",
     "chalk": "^4.1.1",
     "dotenv": "^10.0.0",
     "fs-extra": "^10.0.0",
     "minimist": "^1.2.5",
+    "moment": "^2.29.1",
     "node-emoji": "^1.10.0",
     "ora": "^5.4.1",
     "sass": "^1.35.1",
     "vite": "^2.3.6",
     "vite-plugin-mock": "^2.7.2",
-    "vue": "^2.6.14",
-    "vue-router": "^3.5.2"
+    "vue": "^3.1.4",
+    "vue-router": "^4.0.10"
   }
 }
