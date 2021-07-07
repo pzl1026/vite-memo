@@ -1,5 +1,4 @@
 {
-  "name": "evam-test1",
   "version": "1.0.0",
   "description": "基于vite的构建框架",
   "main": "index.js",
@@ -21,5 +20,8 @@
   },
   "devDependencies": {
     "lerna": "^4.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

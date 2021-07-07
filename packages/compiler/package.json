@@ -1,6 +1,6 @@
 {
   "name": "@evam/compiler",
-  "version": "1.0.0",
+  "version": "1.0.1-alpha.1",
   "description": "构建编译模块",
   "author": "pzl <‘pzl1026@aliyun.com’>",
   "homepage": "https://github.com/pzl1026/vite-memo#readme",
@@ -15,7 +15,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pzl1026/vite-memo.git"
+    "url": "git+https://github.com/pzl1026/vite-memo.git",
+    "directory": "packages/compiler"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"

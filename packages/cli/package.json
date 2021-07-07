@@ -1,6 +1,6 @@
 {
   "name": "@evam/cli",
-  "version": "1.0.1-alpha.0",
+  "version": "1.0.1-alpha.1",
   "description": "bin文件",
   "author": "pzl <‘pzl1026@aliyun.com’>",
   "homepage": "https://github.com/pzl1026/vite-memo#readme",
@@ -31,6 +31,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "gitHead": "d630dd03f8eea4496e72670027c65ad5da15ee9b"
+  }
 }
