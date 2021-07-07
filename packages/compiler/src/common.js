@@ -15,9 +15,6 @@ module.exports = {
       axios$: 'axios/dist/axios.js',
       moment$: 'moment/dist/moment.js',
       vue$: 'vue/dist/vue.esm-browser.js',
-
-      // vue: 'vue/dist/vue.esm-browser.js',
-      // axios: 'axios/dist/axios.js',
     },
   },
   esbuild: {

@@ -1,6 +1,6 @@
 {
   "name": "@evam/tpl",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
   "description": "模版",
   "main": "index.js",
   "scripts": {

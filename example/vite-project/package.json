@@ -1,12 +1,9 @@
 {
-  "version": "0.0.0",
+  "version": "1.0.0-alpha.1",
   "scripts": {
     "build": "evam build -e st1",
     "serve": "vite preview",
     "start": "evam -e st1"
-  },
-  "devDependencies": {
-    "sass": "^1.35.1"
   },
   "workspaces": [
     "../../packages/*"

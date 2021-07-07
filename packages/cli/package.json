@@ -1,14 +1,16 @@
 {
   "name": "evam",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
   "description": "命令文件",
-  "main": "index.js",
   "bin": {
-    "evam": "index.js"
+    "evam": "bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "pzl",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.5"
+  }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@evam/generator",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha.1",
   "description": "生成器",
   "main": "index.js",
   "scripts": {

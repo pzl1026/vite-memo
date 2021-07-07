@@ -16,8 +16,8 @@ const { commander, params } = getCommanderParams();
 
 switch (commander) {
   case 'build':
-    require('@vm/compiler')('build', params);
+    require('@evam/compiler')('build', params);
     break;
   default:
-    require('@vm/compiler')('dev', params);
+    require('@evam/compiler')('dev', params);
 }
