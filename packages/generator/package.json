@@ -1,6 +1,6 @@
 {
   "name": "@evam/generator",
-  "version": "1.0.4-alpha.0",
+  "version": "1.0.0-alpha.0",
   "description": "生成器",
   "author": "pzl <‘pzl1026@aliyun.com’>",
   "homepage": "https://github.com/pzl1026/vite-memo#readme",
@@ -25,5 +25,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "d188abd9171c6a60ab0ed8c428d19f3c7d47cc5f"
 }
