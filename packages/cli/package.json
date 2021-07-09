@@ -27,7 +27,9 @@
     "url": "https://github.com/pzl1026/vite-memo/issues"
   },
   "dependencies": {
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.5",
+    "@evam/compiler":"1.0.5-alpha.0",
+    "@evam/generator":"1.0.5-alpha.0"
   },
   "publishConfig": {
     "access": "public"
