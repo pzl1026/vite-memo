@@ -1,7 +1,7 @@
 'use strict';
 
-module.exports = cli2;
+module.exports = cli;
 
-function cli2() {
+function cli() {
     // TODO
 }

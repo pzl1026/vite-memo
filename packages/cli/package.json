@@ -5,7 +5,7 @@
   "author": "pzl <‘pzl1026@aliyun.com’>",
   "homepage": "https://github.com/pzl1026/vite-memo#readme",
   "license": "ISC",
-  "main": "lib/cli2.js",
+  "main": "lib/cli.js",
   "bin": {
     "evam": "./bin/index.js"
   },
