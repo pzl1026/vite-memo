@@ -11,7 +11,7 @@
     "createpage": "evam createpage -t goods"
   },
   "workspaces": [
-    "../../packages/*"
+    "../packages/*"
   ],
   "private": true,
   "author": "",

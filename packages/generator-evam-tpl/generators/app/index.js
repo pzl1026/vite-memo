@@ -1,6 +1,8 @@
 const Generator = require('yeoman-generator');
 const figlet = require('figlet');
 const path = require('path');
+const emoji = require('node-emoji');
+const chalk = require('chalk');
 
 const mm = require('minimist');
 
@@ -93,10 +95,16 @@ module.exports = class extends Generator {
   install() {
     const projectDir = path.join(process.cwd(), this.answers.name);
     // this.spawnCommandSync('npm', ['config', 'set', 'sass_binary_site=https://npm.taobao.org/mirrors/node-sass/'], {cwd: projectDir})
-    this.spawnCommandSync(
-      'npm',
-      ['install', '--registry=https://registry.npm.taobao.org'],
-      { cwd: projectDir }
-    );
+    // this.spawnCommandSync(
+    //   'npm',
+    //   ['install', '--registry=https://registry.npm.taobao.org'],
+    //   { cwd: projectDir }
+    // );
+
+    this.spawnCommandSync('yarn', { cwd: projectDir });
+  }
+
+  end() {
+    console.log(emoji.get(':rocket:') + ' ' + chalk.green('项目创建完成！!'));
   }
 };

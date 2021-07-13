@@ -23,7 +23,9 @@
     "url": "https://github.com/pzl1026/vite-memo/issues"
   },
   "dependencies": {
+    "chalk": "^4.1.1",
     "figlet": "^1.5.0",
+    "node-emoji": "^1.10.0",
     "yeoman-generator": "^5.4.0"
   }
 }

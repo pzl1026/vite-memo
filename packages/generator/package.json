@@ -29,6 +29,7 @@
   "gitHead": "d188abd9171c6a60ab0ed8c428d19f3c7d47cc5f",
   "dependencies": {
     "execa": "^5.1.1",
+    "generator-evam-tpl": "^1.0.7-alpha.0",
     "yo": "^4.2.0"
   }
 }
