@@ -1,0 +1,17 @@
+{
+  "name": "<%= name %>",
+  "version": "1.0.0",
+  "description": "<%= description %>",
+  "main": "index.js",
+  "scripts": {
+    "build": "evam build -e st1",
+    "serve": "vite preview",
+    "start": "evam -e st1",
+    "createpage": "evam createpage -t goods"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.29.1"
+  }
+}

@@ -13,7 +13,7 @@ module.exports = {
       'vue-router$': 'vue-router/dist/vue-router.cjs.js',
       '@ant-design/icons-vue$': '@ant-design/icons-vue/lib',
       axios$: 'axios/dist/axios.js',
-      moment$: 'moment/dist/moment.js',
+      // moment$: 'moment/dist/moment.js',
       vue$: 'vue/dist/vue.esm-browser.js',
     },
   },

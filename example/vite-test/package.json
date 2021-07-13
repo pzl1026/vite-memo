@@ -1,5 +1,8 @@
 {
-  "version": "1.0.0-alpha.1",
+  "name": "vite-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "build": "evam build -e st1",
     "serve": "vite preview",
@@ -11,13 +14,6 @@
     "../../packages/*"
   ],
   "private": true,
-  "dependencies": {
-    "yo": "^4.2.0"
-  },
-  "name": "vite-project",
-  "main": ".evam.js",
-  "devDependencies": {},
   "author": "",
-  "license": "ISC",
-  "description": ""
+  "license": "ISC"
 }

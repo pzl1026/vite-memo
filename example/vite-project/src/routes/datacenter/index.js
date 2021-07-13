@@ -1,5 +1,6 @@
 import Dashboard from '@/pages/dashboard/index.vue';
 import ModuleLayout from '@/widgets/moduleLayout.vue';
+import { defineAsyncComponent } from 'vue';
 
 export default {
   path: '/datacenter',
@@ -17,7 +18,7 @@ export default {
         icon: 'MailOutlined',
       },
       path: '/dashboard',
-      component: Dashboard,
+      component: Dashboard, //defineAsyncComponent(() => Dashboard),
       // children: [
       //   {
       //     meta: {
