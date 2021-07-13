@@ -7,7 +7,11 @@ const chalk = require('chalk');
 const mm = require('minimist');
 
 module.exports = class extends Generator {
-  initlializing() {
+  constructor(args, opts) {
+    super(args, opts);
+    this.type = opts.t;
+  }
+  initializing() {
     // 由于.xxx文件不能复制过去，所以这里列举出来，然后分别处理
     this.noFindFiles = ['.env', '.evam.js', '.gitignore'];
   }
@@ -61,6 +65,14 @@ module.exports = class extends Generator {
     //   Math.random().toString() // 写入内容
     // );
 
+    if (this.type == 'page') {
+      this._createPage();
+    } else {
+      this._createProject();
+    }
+  }
+
+  _createProject() {
     // 模板数据上下文
     const context = {
       name: this.answers.name,
@@ -83,6 +95,8 @@ module.exports = class extends Generator {
       );
     }
   }
+
+  _createPage() {}
 
   // 安装依赖
   // install() {

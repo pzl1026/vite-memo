@@ -4,11 +4,11 @@ function generator(type, params) {
   // TODO
   console.log(type, params, 'jjj');
   if (type == 'init') {
-    console.log(2222);
-    execa('yo', ['evam-tpl'], { stdio: 'inherit' });
+    execa('yo', ['evam-tpl', '-t', 'project'], { stdio: 'inherit' });
   }
 
   if (type == 'createpage') {
+    execa('yo', ['evam-tpl', '-t', 'page'], { stdio: 'inherit' });
   }
 }
 
