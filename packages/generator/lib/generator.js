@@ -8,7 +8,9 @@ function generator(type, params) {
   }
 
   if (type == 'createpage') {
-    execa('yo', ['evam-tpl', '-t', 'page'], { stdio: 'inherit' });
+    execa('yo', ['evam-tpl', '-t', 'page'], {
+      stdio: 'inherit',
+    });
   }
 }
 
