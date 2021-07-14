@@ -1,7 +1,8 @@
 const vue = require('@vitejs/plugin-vue');
 const legacy = require('@vitejs/plugin-legacy');
 const path = require('path');
-
+const styleImport = require('vite-plugin-style-import').default;
+console.log(styleImport, 'styleImport')
 module.exports = {
   root: path.resolve(__dirname, 'publicMain'),
   publicDir: path.resolve(process.cwd(), 'public'),
@@ -10,7 +11,7 @@ module.exports = {
     alias: {
       // '@': '/src',
       '@': path.resolve(process.cwd(), 'src'),
-      'ant-design-vue$': 'ant-design-vue/es/index.js',
+      // 'ant-design-vue$': 'ant-design-vue/es/index.js',
       'vue-router$': 'vue-router/dist/vue-router.cjs.js',
       '@ant-design/icons-vue$': '@ant-design/icons-vue/lib',
       axios$: 'axios/dist/axios.js',
@@ -27,5 +28,14 @@ module.exports = {
     legacy({
       targets: ['defaults', 'not IE 11'],
     }),
+    styleImport({
+      libs: [{
+        libraryName: 'ant-design-vue',
+        esModule: true,
+        resolveStyle: (name) => {
+          return `ant-design-vue/es/${name}/style/css`;
+        },
+      }]
+    })
   ],
 };
