@@ -23,7 +23,11 @@ module.exports = function () {
       if (err) {
         return;
       }
-
+      console.log(
+        path.join(process.cwd(), conf.build.outDir, '/index.html'),
+        path.join(process.cwd(), '/view/index.html'),
+        'path'
+      );
       fs.copy(
         path.join(process.cwd(), conf.build.outDir, '/index.html'),
         path.join(process.cwd(), '/view/index.html')

@@ -1,5 +1,7 @@
 const path = require('path');
 const { build } = require('vite');
+const viteCompression = require('vite-plugin-compression').default;
+const legacy = require('@vitejs/plugin-legacy');
 const {
   getEnvConf,
   getViteConf,
@@ -18,12 +20,37 @@ module.exports = async (params) => {
 
   const conf = merge(
     {
-      root: path.resolve(process.cwd()),
-      plugins: [copyFtp(), performance()],
-      define: Object.assign({}, envConf, params),
+      // root: path.resolve(process.cwd()),
+      plugins: [
+        // copyFtp(),
+        // legacy({
+        //   targets: ['defaults', 'not IE 11'],
+        // }),
+        performance(),
+        viteCompression(),
+      ],
+      define: Object.assign({}, envConf, { SERVE_ENV: params.E }),
       build: {
-        outDir: 'output',
-        assetsDir: `static/${trimQuotation(envConf.STATIC_DIR || '')}`,
+        chunkSizeWarningLimit: 1024,
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              'mqj-vendor': ['vue', 'vue-router', 'axios', 'moment'],
+              'mqj-ant': ['ant-design-vue'],
+            },
+            // manualChunks(id) {
+            //   if (id.includes('node_modules')) {
+            //     return id
+            //       .toString()
+            //       .split('node_modules/')[1]
+            //       .split('/')[0]
+            //       .toString();
+            //   }
+            // },
+          },
+        },
+        // outDir: 'output',
+        // assetsDir: `static/${trimQuotation(envConf.STATIC_DIR || '')}`,
         // base: '/foo/',
         // rollupOptions: {
         // input: '/src/main.js',

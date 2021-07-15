@@ -2,6 +2,8 @@
   "version": "1.0.0-alpha.1",
   "scripts": {
     "build": "evam build -e st1",
+    "build2": "vite build",
+    "dev": "vite",
     "serve": "vite preview",
     "start": "evam -e st1",
     "init": "evam init",
@@ -11,13 +13,29 @@
     "../../packages/*"
   ],
   "private": true,
-  "dependencies": {
-    "yo": "^4.2.0"
-  },
   "name": "vite-project",
   "main": ".evam.js",
   "devDependencies": {},
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "@vitejs/plugin-legacy": "^1.4.1",
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vue/compiler-sfc": "^3.0.11",
+    "ant-design-vue": "^2.2.2",
+    "axios": "^0.21.1",
+    "babel-core": "^6.26.3",
+    "chalk": "^4.1.1",
+    "dotenv": "^10.0.0",
+    "fs-extra": "^10.0.0",
+    "moment": "^2.29.1",
+    "node-emoji": "^1.10.0",
+    "ora": "^5.4.1",
+    "sass": "^1.35.1",
+    "vite": "^2.3.6",
+    "vite-plugin-style-import": "^1.0.1",
+    "vue": "^3.1.4",
+    "vue-router": "^4.0.10"
+  }
 }

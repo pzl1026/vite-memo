@@ -7437,6 +7437,15 @@ vinyl@^2.0.1:
     remove-trailing-separator "^1.0.1"
     replace-ext "^1.0.0"
 
+vite-plugin-compression@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-compression/-/vite-plugin-compression-0.3.0.tgz#24daf2a2ae5b6ccf6f1a0298f6fc359af2ea3b7e"
+  integrity sha512-/aeaSbDSazW4COMIrTLPM0Zr4NWRjAT9elfPqtr0l+dqjVMKnbO4PBr/n/koQdUGSEtwJtPMpqCGKwRfhJg7/A==
+  dependencies:
+    chalk "^4.1.1"
+    debug "^4.3.2"
+    fs-extra "^10.0.0"
+
 vite-plugin-style-import@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/vite-plugin-style-import/-/vite-plugin-style-import-1.0.1.tgz#bf61337dd11e4ebc0f355f271e06d374b1ca5c79"
