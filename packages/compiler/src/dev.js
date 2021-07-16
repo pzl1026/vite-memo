@@ -8,11 +8,12 @@ const {
   proxyLink,
 } = require('./helper');
 const comConf = require('./common');
-console.log(process.cwd(), 'hhh');
+
 module.exports = async (params) => {
   const envConf = getEnvConf('dev');
   const viteConf = getViteConf('dev');
-  params2Stringify(params);
+  const evamParams = params2Stringify(params);
+
   const customConf = getCustomConf();
   const proxy = proxyLink(customConf.linkEnv, params);
 
@@ -26,7 +27,7 @@ module.exports = async (params) => {
       },
       define: {
         ...envConf,
-        ...params,
+        ...evamParams,
       },
     },
     comConf,

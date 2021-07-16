@@ -16,7 +16,7 @@ const comConf = require('./common');
 module.exports = async (params) => {
   const envConf = getEnvConf('build');
   const viteConf = getViteConf('build');
-  params2Stringify(params);
+  const evamParams = params2Stringify(params);
 
   const conf = merge(
     {
@@ -29,7 +29,7 @@ module.exports = async (params) => {
         performance(),
         viteCompression(),
       ],
-      define: Object.assign({}, envConf, { SERVE_ENV: params.E }),
+      define: Object.assign({}, envConf, evamParams),
       build: {
         chunkSizeWarningLimit: 1024,
         rollupOptions: {

@@ -25,6 +25,7 @@ const getModeConf = (conf, env) => {
       o[k] = typeof v == 'string' ? JSON.stringify(v) : v;
     }
   }
+  console.log(o, comConf, 'hhhh');
   return Object.assign({}, comConf, o);
 };
 
@@ -84,10 +85,15 @@ const getCustomConf = () => {
 
 // 将所有命令params加上 JSON.stringify
 const params2Stringify = (params) => {
+  const explain = {
+    e: 'SERVE_ENV', // 联调环境
+  };
+  let newParams = {};
+
   for (let [k, v] of Object.entries(params)) {
-    params[k.toUpperCase()] = JSON.stringify(v);
-    delete params[k.toLowerCase()];
+    newParams[explain[k]] = JSON.stringify(v);
   }
+  return newParams;
 };
 
 // 去除JSON.stringify的双引号
