@@ -1,10 +1,9 @@
 import Dashboard from '@/pages/dashboard/index.vue';
-import ModuleLayout from '@/widgets/moduleLayout.vue';
-import { defineAsyncComponent } from 'vue';
+import DataCenterLayout from '@/pages/dataCenterLayout/index.vue';
 
 export default {
   path: '/datacenter',
-  component: ModuleLayout,
+  component: DataCenterLayout,
   name: 'datacenter',
   meta: {
     title: '数据中心',

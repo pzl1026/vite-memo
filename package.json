@@ -8,7 +8,8 @@
     "packages/@gp0320/*"
   ],
   "directories": {
-    "example": "example"
+    "example": "example",
+    "test": "test"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,5 +24,14 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "name": "mqj",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pzl1026/vite-memo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pzl1026/vite-memo/issues"
+  },
+  "homepage": "https://github.com/pzl1026/vite-memo#readme"
 }

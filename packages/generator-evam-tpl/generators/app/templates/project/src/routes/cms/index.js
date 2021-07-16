@@ -2,11 +2,11 @@ import Banner from '@/pages/banner/index.vue';
 import Banner2 from '@/pages/banner2/index.vue';
 import BannerList from '@/pages/bannerList/index.vue';
 import Info from '@/pages/info/index.vue';
-import ModuleLayout from '@/widgets/moduleLayout.vue';
+import CmsLayout from '@/pages/cmsLayout/index.vue';
 
 export default {
   path: '/cms',
-  component: ModuleLayout,
+  component: CmsLayout,
   name: 'cms',
   meta: {
     title: 'cms',
