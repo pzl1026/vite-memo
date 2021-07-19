@@ -59,7 +59,7 @@ module.exports = class extends Generator {
           {
             type: 'rawlist', // 交互类型
             name: 'pageType',
-            choices: ['SearchTable', 'FormContent', 'Info'],
+            choices: ['common', 'form', 'info', 'searchTable', 'searchTableModal'],
             message: '你想创建哪种页面？', // 询问信息
           },
           {

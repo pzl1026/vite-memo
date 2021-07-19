@@ -5,6 +5,7 @@ import routesList from '@/routes/index.js';
 import App from '@/widgets/layout.vue';
 import RouterHelper from '@evam/utils/lib/routeHelper';
 import 'ant-design-vue/dist/antd.css';
+import componentsInstall from './globalComponents';
 
 const rh = new RouterHelper(routesList);
 
@@ -14,6 +15,7 @@ const router = createRouter({
 });
 
 const app = createApp(App);
+componentsInstall(app);
 app.config.globalProperties = { rh };
 app.use(router);
 app.use(Antd);

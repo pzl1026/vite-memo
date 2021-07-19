@@ -1,105 +1,9 @@
 export const formItems = [
   {
-    label: 'searchName',
-    name: 'searchname',
-    value: 'mingcheng',
-    type: 'input'
-  },
-  {
-    label: 'searchSelect',
-    name: 'searchSelect',
-    span: 8,
-    type: 'select',
-    itemProps: {
-      options: [
-        {
-          label: 'aa',
-          value: 'aa1',
-        },
-        {
-          label: 'bb',
-          value: 'bb1',
-        },
-      ],
-    }
-  },
-  {
-    label: 'searchNumber',
-    name: 'searchNumber',
-    span: 8,
-    type: 'input-number'
-  },
-  {
-    label: 'searchDate',
-    name: 'searchDate',
-    span: 8,
-    valueType: 'number',
-    value: '',
-    type: 'date-picker',
-    format: 'YYYY-MM-DD HH:mm:ss'
-  },
-  {
-    label: 'searchRangeDate',
-    name: 'searchRangeDate',
-    span: 8,
-    valueFields: ['startTime', 'endTime'],
-    valueType: 'string',
-    value: [],
-    type: 'range-picker',
-    format: 'YYYY-MM-DD HH:mm:ss',
-  },
-  {
-    label: 'searchOther',
-    name: 'searchOther',
-    span: 8,
-    slot: 'searchOther'
-  },
-];
-
-export const searchRules = {
-  searchName: [
-    {
-      required: true,
-      message: 'Please input Activity name',
-      trigger: 'blur',
-    },
-    {
-      max: 15,
-      message: 'Length should be max 15',
-      trigger: 'blur',
-    },
-  ]
-};
-
-export const columns = [
-  {
-    title: '操作',
-    dataIndex: 'action',
-    slots: { customRender: 'action' },
-  },
-  {
-    title: '姓名',
-    dataIndex: 'name',
-    key: 'name',
-  },
-  {
-    title: '年龄',
-    dataIndex: 'age',
-    key: 'age',
-  },
-  {
-    title: '住址',
-    dataIndex: 'address',
-    key: 'address',
-  },
-];
-
-export const formItems2 = [
-  {
     label: '名称',
     name: 'username',
     value: 'mingcheng',
-    type: 'input'
+    type: 'input',
   },
   {
     label: '类型',
@@ -115,83 +19,87 @@ export const formItems2 = [
       options: [
         {
           label: '启用',
-          value: 1
+          value: 1,
         },
         {
           label: '禁用',
-          value: 0
-        }
-      ]
-    }
+          value: 0,
+        },
+      ],
+    },
   },
   {
     label: '类型多选',
     name: 'multitype',
     value: [],
     type: 'select',
-    itemProps:{
+    itemProps: {
       mode: 'multiple',
       options: [
         {
           label: '选项1',
-          value: 1
+          value: 1,
         },
         {
           label: '选项2',
-          value: 0
+          value: 0,
         },
         {
           label: '选项3',
-          value: 0
-        }
-      ]
-    }
+          value: 0,
+        },
+      ],
+    },
   },
   {
     label: '多选',
     name: 'checks',
     value: [],
     type: 'checkbox-group',
-    itemProps:{
+    itemProps: {
       options: [
         {
           label: '选项1',
-          value: 1
+          value: 1,
         },
         {
           label: '选项2',
-          value: 2
+          value: 2,
         },
         {
           label: '选项3',
-          value: 3
-        }
-      ]
-    }
+          value: 3,
+        },
+      ],
+    },
   },
   {
     label: '是否',
     name: 'is',
     value: 1,
-    type: 'switch'
+    type: 'switch',
   },
   {
     label: '文本',
     name: 'text',
     value: '',
-    type: 'textarea'
+    type: 'textarea',
   },
   {
     label: '日期',
     name: 'date',
-    value: '',
-    type: 'date-picker'
+    type: 'date-picker',
+    valueType: 'number',
+    format: 'YYYY-MM-DD HH:mm:ss',
   },
   {
     label: '日期范围',
     name: 'dateRange',
     value: [],
-    type: 'range-picker'
+    valueFields: ['startTime', 'endTime'],
+    valueType: 'string',
+    type: 'range-picker',
+    format: 'YYYY-MM-DD HH:mm:ss',
   },
   {
     label: '其他',
@@ -201,7 +109,7 @@ export const formItems2 = [
   },
 ];
 
-export const formItems2Rules2 = {
+export const formItems2Rules = {
   username: [
     {
       required: true,
@@ -275,39 +183,5 @@ export const formItems2Rules2 = {
       message: 'Please input activity form',
       trigger: 'blur',
     },
-  ]
+  ],
 };
-
-export const info = {
-  name: 'pzl',
-  age: 18,
-  height: 183,
-  birth: '13月8日'
-};
-
-export const itemLabel = [
-  {
-    key: 'name',
-    label: '姓名',
-    span: 12,
-    itemLayout: {
-      labelSpan: 8,
-      valueSpan: 16
-    }
-  },
-  {
-    key: 'age',
-    label: '年龄',
-    span: 12,
-  },
-  {
-    key: 'height',
-    label: '身高',
-    span: 12,
-  },
-  {
-    key: 'birth',
-    label: '生日',
-    span: 12,
-  },
-];

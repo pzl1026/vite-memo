@@ -49,7 +49,6 @@
     toRefs,
     reactive,
     getCurrentInstance,
-    emit,
   } from 'vue';
   import { message } from 'ant-design-vue';
   import { debounce } from 'lodash';
@@ -130,9 +129,12 @@
         uploadNext: 0,
       });
 
-      watch(() => props.value, val => {
-        state.fileList = val;
-      })
+      watch(
+        () => props.value,
+        (val) => {
+          state.fileList = val;
+        }
+      );
 
       const uploadingFiles = computed(() => {
         return state.fileList.filter((m) => m.uploaded === false);

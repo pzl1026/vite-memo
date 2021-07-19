@@ -135,7 +135,7 @@
     SearchOutlined,
     ClearOutlined,
   } from '@ant-design/icons-vue';
-  import FormContent from '../FormContent';
+  import FormContent from '../FormContent/index.vue';
   import ConfigProvider from 'ant-design-vue/lib/config-provider';
   import zhCN from 'ant-design-vue/es/date-picker/locale/zh_CN';
 

@@ -27,6 +27,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@evam/components": "^1.0.7-alpha.0",
     "@evam/utils": "^1.0.7-alpha.0",
     "@vitejs/plugin-legacy": "^1.4.1",
     "@vitejs/plugin-vue": "^1.2.3",
