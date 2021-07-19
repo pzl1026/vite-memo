@@ -2,7 +2,6 @@ import ajax from './r';
 // import UploadOSS from './oss';
 import UploadOSS from './tx-oss';
 import { message } from 'ant-design-vue';
-import { MQJ_TOKEN } from '@/mqj/mqj.config';
 // let md5 = require('js-md5');
 import md5 from 'js-md5';
 

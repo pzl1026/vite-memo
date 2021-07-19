@@ -1,27 +1,13 @@
 import axios from 'axios';
-import {
-  AUTHORIZATION,
-  TOKEN,
-  X_ACCOUNT_TYPE,
-  MQJ_TOKEN,
-  BRACHNAME,
-  X_ACCOUNT_TYPE_VALUE,
-  BRACHNAME_VALUE,
-  SPID,
-} from '@/mqj/mqj.config';
 import { message } from 'ant-design-vue';
 
 function setOption() {
   const headers = {};
-
+  // 常量在.env文件
   headers[AUTHORIZATION] = localStorage.getItem(MQJ_TOKEN);
   headers[TOKEN] = localStorage.getItem(MQJ_TOKEN);
   headers[X_ACCOUNT_TYPE] = X_ACCOUNT_TYPE_VALUE;
   headers[BRACHNAME] = BRACHNAME_VALUE;
-  headers['app-type'] = 'asst';
-  headers['app-platform'] = 'm';
-  headers[SPID] = localStorage.getItem(SPID);
-  // headers['x-data-permission'] = localStorage.getItem(SPID);
 
   function getBaseUrl(nodeEnv, prodEnv = 'st1') {
     if (nodeEnv != 'production') {
@@ -42,7 +28,7 @@ function setOption() {
   let baseURL = '';
 
   try {
-    baseURL = getBaseUrl(NODE_ENV, PROD_ENV);
+    baseURL = getBaseUrl(import.meta.env.MODE, PROD_ENV);
   } catch (e) {}
   const option = {
     headers,
