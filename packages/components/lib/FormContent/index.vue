@@ -12,10 +12,10 @@
         v-for="item in formItems"
         :key="item.name"
       >
+      <!-- :name="item.name" -->
         <a-form-item
           v-if="!item.hidden"
           :label="item.label"
-          :name="item.name"
           v-bind="item.formItemProps"
           style="display: flex"
         >
