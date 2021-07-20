@@ -23,14 +23,10 @@ module.exports = function () {
       if (err) {
         return;
       }
-      console.log(
-        path.join(process.cwd(), conf.build.outDir, '/index.html'),
-        path.join(process.cwd(), '/view/index.html'),
-        'path'
-      );
+
       fs.copy(
-        path.join(process.cwd(), conf.build.outDir, '/index.html'),
-        path.join(process.cwd(), '/view/index.html')
+        path.resolve(__dirname, '../publicMain/dist/index.html'),
+        path.resolve(process.cwd(), './view/index.html')
       ).then((err) => {
         if (err) {
           throw err;
@@ -42,13 +38,9 @@ module.exports = function () {
         }
         console.log(
           chalk.yellow(
-            path.join(
-              '文件拷贝：' + process.cwd(),
-              conf.build.outDir,
-              '/index.html'
-            ) +
-              ' => ' +
-              path.join(process.cwd(), '/view/index.html')
+            '文件拷贝：' +
+              path.resolve(__dirname, '../publicMain/dist/index.html'),
+            +' => ' + path.resolve(process.cwd(), './view/index.html')
           )
         );
         console.log(emoji.get(':palm_tree:') + chalk.blue('项目目录部署完成'));
