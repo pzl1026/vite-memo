@@ -11,7 +11,7 @@ module.exports = class extends Generator {
   }
   initializing() {
     // 由于.xxx文件不能复制过去，所以这里列举出来，然后分别处理
-    this.noFindFiles = ['.env', '.evam.js', '.gitignore'];
+    this.noFindFiles = ['.env', '.evam.js', 'gitignore'];
   }
   // add your own methods
   ddLogo() {
@@ -103,7 +103,7 @@ module.exports = class extends Generator {
 
     for (let f of this.noFindFiles) {
       this.fs.copyTpl(
-        this.templatePath(`project/${f}`),
+        this.templatePath(`project/${f == 'gitignore' ? '.' + f : f}`),
         this.destinationPath(`${this.answers.name}/${f}`),
         context
       );
