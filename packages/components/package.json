@@ -22,8 +22,5 @@
   },
   "bugs": {
     "url": "https://github.com/pzl1026/vite-memo/issues"
-  },
-  "dependencies": {
-    "@evam/utils": "^1.0.7-alpha.0"
   }
 }
