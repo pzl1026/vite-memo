@@ -22,7 +22,7 @@ module.exports = async (params) => {
     {
       // root: path.resolve(process.cwd()),
       plugins: [
-        copyFtp(),
+        copyFtp(envConf),
         // legacy({
         //   targets: ['defaults', 'not IE 11'],
         // }),
