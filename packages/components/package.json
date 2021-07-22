@@ -22,5 +22,8 @@
   },
   "bugs": {
     "url": "https://github.com/pzl1026/vite-memo/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
