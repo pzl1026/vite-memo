@@ -3,6 +3,7 @@ const figlet = require('figlet');
 const path = require('path');
 const emoji = require('node-emoji');
 const chalk = require('chalk');
+const fs = require('fs');
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -11,7 +12,7 @@ module.exports = class extends Generator {
   }
   initializing() {
     // 由于.xxx文件不能复制过去，所以这里列举出来，然后分别处理
-    this.noFindFiles = ['.env', '.evam.js', 'gitignore'];
+    this.noFindFiles = ['.env', '.evam.js'];
   }
   // add your own methods
   ddLogo() {
@@ -103,7 +104,7 @@ module.exports = class extends Generator {
 
     for (let f of this.noFindFiles) {
       this.fs.copyTpl(
-        this.templatePath(`project/${f == 'gitignore' ? '.' + f : f}`),
+        this.templatePath(`project/${f}`),
         this.destinationPath(`${this.answers.name}/${f}`),
         context
       );
@@ -140,6 +141,15 @@ module.exports = class extends Generator {
         emoji.get(':rocket:') +
           ' ' +
           chalk.green(`${this.answers.name} 项目创建完成！`)
+      );
+      fs.rename(
+        path.join(process.cwd(), this.answers.name + '/gitignore'),
+        path.join(process.cwd(), this.answers.name + '/.gitignore'),
+        (err) => {
+          if (err) {
+            throw err;
+          }
+        }
       );
     } else {
       console.log(
