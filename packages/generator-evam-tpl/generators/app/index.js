@@ -3,7 +3,6 @@ const figlet = require('figlet');
 const path = require('path');
 const emoji = require('node-emoji');
 const chalk = require('chalk');
-const mm = require('minimist');
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -59,7 +58,13 @@ module.exports = class extends Generator {
           {
             type: 'rawlist', // 交互类型
             name: 'pageType',
-            choices: ['common', 'form', 'info', 'searchTable', 'searchTableModal'],
+            choices: [
+              'common',
+              'form',
+              'info',
+              'searchTable',
+              'searchTableModal',
+            ],
             message: '你想创建哪种页面？', // 询问信息
           },
           {
@@ -74,13 +79,6 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    // 我们使用 Generator 提供的 fs 模块尝试往目录中写入文件
-    // this.fs.write(
-    //   // destinationPath() 基于项目地址
-    //   this.destinationPath('temp.txt'), // 写入地址
-    //   Math.random().toString() // 写入内容
-    // );
-
     if (this.type == 'page') {
       this._createPage();
     } else {
@@ -117,7 +115,6 @@ module.exports = class extends Generator {
     const tempPath = this.templatePath(`pages/${this.answers.pageType}`);
     // 输出目标路径
     const output = this.destinationPath(`src/pages/${this.answers.pageName}`);
-    console.log(tempPath, output, 'output');
 
     this.fs.copyTpl(tempPath, output, { success: true });
   }
@@ -133,16 +130,8 @@ module.exports = class extends Generator {
   install() {
     if (this.type == 'project') {
       const projectDir = path.join(process.cwd(), this.answers.name);
-
-      this.spawnCommandSync('yarn', { cwd: projectDir });
+      this.spawnCommandSync('yarn', [], { cwd: projectDir });
     }
-
-    // this.spawnCommandSync('npm', ['config', 'set', 'sass_binary_site=https://npm.taobao.org/mirrors/node-sass/'], {cwd: projectDir})
-    // this.spawnCommandSync(
-    //   'npm',
-    //   ['install', '--registry=https://registry.npm.taobao.org'],
-    //   { cwd: projectDir }
-    // );
   }
 
   end() {
