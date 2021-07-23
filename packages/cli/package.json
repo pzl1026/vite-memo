@@ -27,10 +27,10 @@
     "url": "https://github.com/pzl1026/vite-memo/issues"
   },
   "dependencies": {
-    "@evam/compiler": "^1.0.9-alpha.0",
-    "@evam/components": "^1.0.9-alpha.0",
-    "@evam/generator": "^1.0.9-alpha.0",
-    "@evam/utils": "^1.0.9-alpha.0",
+    "@evam/compiler": "^1.0.11-alpha.0",
+    "@evam/components": "^1.0.11-alpha.0",
+    "@evam/generator": "^1.0.11-alpha.0",
+    "@evam/utils": "^1.0.11-alpha.0",
     "generator-evam-tpl": "^1.0.10-alpha.0",
     "minimist": "^1.2.5",
     "utils": "^0.3.1"

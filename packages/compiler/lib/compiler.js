@@ -1,7 +1,7 @@
 module.exports = function complier(mode, params) {
   if (mode == 'build') {
-    require('../src/build')(params);
+    require('./build')(params);
   } else {
-    require('../src/dev')(params);
+    require('./dev')(params);
   }
 };
