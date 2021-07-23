@@ -29,7 +29,7 @@
   "dependencies": {
     "@evam/compiler": "^1.0.11-alpha.0",
     "@evam/components": "^1.0.9-alpha.0",
-    "@evam/generator": "^1.0.11-alpha.0",
+    "@evam/generator": "^1.0.9-alpha.0",
     "@evam/utils": "^1.0.9-alpha.0",
     "generator-evam-tpl": "^1.0.11-alpha.0",
     "minimist": "^1.2.5",
