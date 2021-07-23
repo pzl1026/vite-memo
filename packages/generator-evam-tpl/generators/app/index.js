@@ -4,11 +4,13 @@ const path = require('path');
 const emoji = require('node-emoji');
 const chalk = require('chalk');
 const fs = require('fs');
+const fetch = require('node-fetch');
 
 module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
     this.type = opts.t;
+
   }
   initializing() {
     // 由于.xxx文件不能复制过去，所以这里列举出来，然后分别处理
@@ -86,14 +88,22 @@ module.exports = class extends Generator {
       this._createProject();
     }
   }
-
+  
+  // 处理依赖
   _createProject() {
     // 模板数据上下文
     const context = {
       name: this.answers.name,
       description: this.answers.description,
       success: true,
+      // deps: `{ \"execa\": \"^5.1.1\"}`
     };
+
+    // if (this.type != 'page') {
+    //   const deps = await this._getEvamDeps();
+    //   console.log(deps, 'ddd')
+    //   context.deps = deps;
+    // }
 
     // // 模版文件路径，默认指向 templates
     const tempPath = this.templatePath('project');
@@ -101,6 +111,8 @@ module.exports = class extends Generator {
     const output = this.destinationPath(this.answers.name);
 
     this.fs.copyTpl(tempPath, output, context);
+
+   
 
     for (let f of this.noFindFiles) {
       this.fs.copyTpl(
@@ -128,10 +140,42 @@ module.exports = class extends Generator {
   //   });
   // }
 
+  // 处理依赖
+  _getEvamDeps() {
+    // "@evam/cli": "^1.0.12-alpha.0",
+    // "@evam/compiler": "^1.0.11-alpha.0",
+    // "@evam/components": "^1.0.9-alpha.0",
+    // "@evam/generator": "^1.0.9-alpha.0",
+    // "@evam/utils": "^1.0.9-alpha.0",
+    // "generator-evam-tpl": "^1.0.11-alpha.0",
+
+    return new Promise(async (resolve, reject) => {
+      let deps = ['@evam/cli', '@evam/compiler', '@evam/components', '@evam/generator', '@evam/utils', 'generator-evam-tpl'];
+  
+      let dependencies = {};
+      for (let i = 0 ; i < deps.length; i++) {
+        let pkg = deps[i];
+        try {
+          res = await fetch(`http://registry.npmjs.org/${pkg}/latest`).then(result => {
+            result.json().then(res => {
+              dependencies[pkg] = `^${res.version}`;
+               if (i == deps.length - 1) {
+                 console.log(dependencies, 'dependencies')
+                resolve(JSON.stringify(dependencies));
+              }
+            })
+          })
+        } catch (e) {
+          throw e;
+        }
+      }
+    });
+  }
+
   install() {
     if (this.type == 'project') {
       const projectDir = path.join(process.cwd(), this.answers.name);
-      this.spawnCommandSync('npm', ['i'], { cwd: projectDir });
+      this.spawnCommandSync('yarn', [], { cwd: projectDir });
     }
   }
 

@@ -11,11 +11,9 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@evam/cli": "^1.0.12-alpha.0"
-  },
   "workspaces": [
     "../../packages/*"
   ],
-  "private": true
+  "private": true,
+  "dependencies":  "<%= deps %>",
 }
