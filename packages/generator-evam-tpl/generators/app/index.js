@@ -131,7 +131,7 @@ module.exports = class extends Generator {
   install() {
     if (this.type == 'project') {
       const projectDir = path.join(process.cwd(), this.answers.name);
-      this.spawnCommandSync('yarn', [], { cwd: projectDir });
+      this.spawnCommandSync('npm', ['i'], { cwd: projectDir });
     }
   }
 
