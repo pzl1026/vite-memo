@@ -60,7 +60,7 @@ const getViteConf = (env) => {
   try {
     const { viteChain } = require(`${cwd}/.evam.js`);
     if (Object.prototype.toString.call(viteChain) !== '[object Object]') {
-      console.warn('viteChain配置只能为Object');
+      console.warn('viteChain配置只能为Object!');
       return {};
     }
     return getModeViteConf(viteChain, env);

@@ -15,5 +15,12 @@
     "../../packages/*"
   ],
   "private": true,
-  "dependencies":  "<%= deps %>",
+  "dependencies":  {
+    "@evam/cli": "<%= cli_v %>",
+    "@evam/compiler": "<%= compiler_v %>",
+    "@evam/components": "<%= components_v %>",
+    "@evam/generator": "<%= generator_v %>",
+    "@evam/utils": "<%= utils_v %>",
+    "generator-evam-tpl":"<%= get_v %>"
+  }
 }

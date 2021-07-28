@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const mm = require('minimist');
-console.log(111);
+
 function getCommanderParams() {
   const argv = mm(process.argv);
   const commander = argv._.pop();
@@ -30,5 +30,3 @@ switch (commander) {
   default:
     require('@evam/compiler')('dev', params);
 }
-
-
