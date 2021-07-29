@@ -33,5 +33,6 @@
     "ora": "^5.4.1",
     "utils": "^0.3.1",
     "yeoman-generator": "^5.4.0"
-  }
+  },
+  "gitHead": "a89c04cf037e2816121e34d1173a6205a54f5ac2"
 }

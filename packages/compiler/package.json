@@ -18,7 +18,7 @@
     "url": "git+https://github.com/pzl1026/vite-memo.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 2"
   },
   "bugs": {
     "url": "https://github.com/pzl1026/vite-memo/issues"
@@ -46,5 +46,6 @@
     "vite-plugin-style-import": "^1.0.1",
     "vue": "^3.1.4",
     "vue-router": "^4.0.10"
-  }
+  },
+  "gitHead": "a89c04cf037e2816121e34d1173a6205a54f5ac2"
 }
