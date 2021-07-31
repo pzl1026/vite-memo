@@ -28,7 +28,11 @@
   },
   "dependencies": {
     "minimist": "^1.2.5",
-    "utils": "^0.3.1"
+    "@evam/compiler": "^1.0.2",
+    "@evam/components": "^1.0.3",
+    "@evam/generator": "^1.0.2",
+    "@evam/utils": "^1.0.2",
+    "generator-evam-tpl": "^1.0.2"
   },
   "publishConfig": {
     "access": "public"
