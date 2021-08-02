@@ -24,6 +24,7 @@ module.exports = async (params) => {
         port: 8080,
         open: '/index.html',
         proxy,
+        force:true,
       },
       define: {
         ...envConf,

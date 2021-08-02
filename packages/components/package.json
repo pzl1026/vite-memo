@@ -5,7 +5,7 @@
   "author": "pzl <‘pzl1026@aliyun.com’>",
   "homepage": "https://github.com/pzl1026/vite-memo/tree/main/packages/components#readme",
   "license": "ISC",
-  "main": "lib/components.js",
+  "main": "index.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"

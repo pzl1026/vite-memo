@@ -150,6 +150,7 @@ module.exports = class extends Generator {
     if (this.type == 'project') {
       const projectDir = path.join(process.cwd(), this.answers.name);
       this.spawnCommandSync('npm', ['i'], { cwd: projectDir });
+      // this.spawnCommandSync('yarn', [], { cwd: projectDir });
     }
   }
 
@@ -160,15 +161,15 @@ module.exports = class extends Generator {
           ' ' +
           chalk.green(`${this.answers.name} 项目创建完成！`)
       );
-      // fs.rename(
-      //   path.join(process.cwd(), this.answers.name + '/gitignore'),
-      //   path.join(process.cwd(), this.answers.name + '/.gitignore'),
-      //   (err) => {
-      //     if (err) {
-      //       throw err;
-      //     }
-      //   }
-      // );
+      fs.rename(
+        path.join(process.cwd(), this.answers.name + '/gitignore'),
+        path.join(process.cwd(), this.answers.name + '/.gitignore'),
+        (err) => {
+          if (err) {
+            throw err;
+          }
+        }
+      );
     } else {
       console.log(
         emoji.get(':tada:') +

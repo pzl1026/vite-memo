@@ -8,7 +8,9 @@
     <!-- v-model:selectedKeys="selectedKeys" -->
     <!-- v-model:openKeys="openKeys"
     v-model:selectedKeys="selectedKeys" -->
-    <menu-item v-for="item in menuList" :item="item" />
+    <template v-if="menuList.length > 0">
+      <menu-item v-for="item in menuList" :item="item" />
+    </template>
   </a-menu>
 </template>
 
