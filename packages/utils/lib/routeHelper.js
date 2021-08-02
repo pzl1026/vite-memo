@@ -9,10 +9,20 @@ class routeHelper {
     this.currModule = {};
     this.modules = [];
     this.routes = [];
-
+    this.getMenus(routesList);
+    this.menus = routesList;
     this.breads = [];
     this.nestRoutes(routes);
     this.getModules(routes);
+  }
+
+  getMenus(routes, parentPath = '') {
+    routes.forEach(item => {
+      item.toLink = parentPath ? `${parentPath}${item.path}` : item.path;
+      if (item.children && item.children.length > 0) {
+        this.getMenus(item.children, item.toLink);
+      }
+    });
   }
 
   // 模块名称

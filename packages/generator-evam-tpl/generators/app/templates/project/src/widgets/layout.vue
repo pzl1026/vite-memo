@@ -158,7 +158,7 @@
             state.selectedKeys = [val.path];
             let moduleName = gvm.rh.getCurrentModuleName(val);
 
-            state.menuList = gvm.rh.originRoutes.find(
+            state.menuList = gvm.rh.menus.find(
               (m) => m.name == moduleName
             ).children;
             state.breads = gvm.rh.getBreadcrumbs(val.matched, val.params);
