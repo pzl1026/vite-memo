@@ -50,7 +50,7 @@ function generator(type, params) {
   }
 
   if (type == 'createpage') {
-    execa('yo', ['evam-tpl', '-t', 'page'], {
+    execa(require.resolve('yo/cli'), ['evam-tpl', '-t', 'page'], {
       stdio: 'inherit',
     });
   }
