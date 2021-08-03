@@ -3,13 +3,13 @@ const path = require('path');
 const styleImport = require('vite-plugin-style-import').default;
 
 module.exports = {
-  root: path.resolve(__dirname, 'publicMain'),
-  publicDir: path.resolve(process.cwd(), 'public'),
+  // root: path.resolve(__dirname, 'publicMain'),
+  // publicDir: path.resolve(process.cwd(), 'public'),
   configFile: false,
   resolve: {
     alias: {
-      // '@': '/src',
-      '@': path.resolve(process.cwd(), 'src'),
+      '@': '/src',
+      // '@': path.resolve(process.cwd(), 'src'),
       'ant-design-vue$': 'ant-design-vue/es/index.js',
       'vue-router$': 'vue-router/dist/vue-router.cjs.js',
       '@ant-design/icons-vue$': '@ant-design/icons-vue/lib',
