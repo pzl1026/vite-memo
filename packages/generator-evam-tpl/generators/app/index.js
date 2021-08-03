@@ -29,11 +29,9 @@ module.exports = class extends Generator {
       },
       function (err, data) {
         if (err) {
-          console.log('Something went wrong...');
           console.dir(err);
           return;
         }
-        console.log(data);
       }
     );
   }
@@ -104,23 +102,14 @@ module.exports = class extends Generator {
       context = { ...context, ...depsVersion };
       this.gotVersion = true;
     };
-
-    // "@evam/compiler": "<%= compiler_v %>",
-    // "@evam/components": "<%= components_v %>",
-    // "@evam/generator": "<%= generator_v %>",
-    // "@evam/utils": "<%= utils_v %>",
-    // "generator-evam-tpl":"<%= get_v %>"
-    // getVersion();
-    console.log(context, 'cddd');
-    // // 模版文件路径，默认指向 templates
+    // 模版文件路径，默认指向 templates
     const tempPath = this.templatePath('project');
-    // // 输出目标路径
+    // 输出目标路径
     const output = this.destinationPath(this.answers.name);
 
     this.fs.copyTpl(tempPath, output, context);
 
     for (let f of this.noFindFiles) {
-      console.log(f, 'fffff');
       this.fs.copyTpl(
         this.templatePath(`project/${f}`),
         this.destinationPath(`${this.answers.name}/${f}`),

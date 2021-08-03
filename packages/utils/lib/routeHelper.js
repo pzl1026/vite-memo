@@ -1,5 +1,3 @@
-import { cloneDeep } from 'lodash';
-
 const MQJ_RECENT = '_mqj_recent';
 const RECENT_COUNT = 10;
 import routesList from '@/routes';
