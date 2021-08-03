@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 const mm = require('minimist');
+const path = require('path');
+global.yoPath = path.resolve(__dirname, '../../../../');
 
 function getCommanderParams() {
   const argv = mm(process.argv);

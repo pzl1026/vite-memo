@@ -43,14 +43,14 @@ function generator(type, params) {
   console.log(type, params, 'jjj');
   if (type == 'init') {
     getEvamDeps().then((res) => {
-      execa(require.resolve('yo/cli'), ['evam-tpl', '-t', 'project', '-v', JSON.stringify(res)], {
+      execa(require.resolve('yo/lib/cli', yoPath), ['evam-tpl', '-t', 'project', '-v', JSON.stringify(res)], {
         stdio: 'inherit',
       });
     });
   }
 
   if (type == 'createpage') {
-    execa(require.resolve('yo/cli'), ['evam-tpl', '-t', 'page'], {
+    execa(require.resolve('yo/lib/cli', yoPath), ['evam-tpl', '-t', 'page'], {
       stdio: 'inherit',
     });
   }
