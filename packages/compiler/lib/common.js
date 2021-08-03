@@ -8,8 +8,8 @@ module.exports = {
   configFile: false,
   resolve: {
     alias: {
-      '@': '/src',
-      // '@': path.resolve(process.cwd(), 'src'),
+      // '@': '/src',
+      '@': path.resolve(process.cwd(), 'src'),
       'ant-design-vue$': 'ant-design-vue/es/index.js',
       'vue-router$': 'vue-router/dist/vue-router.cjs.js',
       '@ant-design/icons-vue$': '@ant-design/icons-vue/lib',
