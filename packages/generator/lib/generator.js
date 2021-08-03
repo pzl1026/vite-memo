@@ -43,7 +43,7 @@ function generator(type, params) {
   console.log(type, params, 'jjj');
   if (type == 'init') {
     getEvamDeps().then((res) => {
-      execa('yo', ['evam-tpl', '-t', 'project', '-v', JSON.stringify(res)], {
+      execa(require.resolve('yo/cli'), ['evam-tpl', '-t', 'project', '-v', JSON.stringify(res)], {
         stdio: 'inherit',
       });
     });
