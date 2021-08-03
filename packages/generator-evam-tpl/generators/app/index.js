@@ -19,7 +19,7 @@ module.exports = class extends Generator {
   // add your own methods
   ddLogo() {
     figlet.text(
-      'HELLO MQJ EVAM!!',
+      'HELLO EVAM!',
       {
         font: 'Ghost',
         horizontalLayout: 'default',
