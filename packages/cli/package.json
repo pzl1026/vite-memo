@@ -1,6 +1,6 @@
 {
   "name": "@evam/cli",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "bin文件",
   "author": "pzl <‘pzl1026@aliyun.com’>",
   "homepage": "https://github.com/pzl1026/vite-memo#readme",
@@ -27,11 +27,11 @@
     "url": "https://github.com/pzl1026/vite-memo/issues"
   },
   "dependencies": {
-    "@evam/compiler": "^1.0.8",
-    "@evam/components": "^1.0.8",
-    "@evam/generator": "^1.0.8",
-    "@evam/utils": "^1.0.8",
-    "generator-evam-tpl": "^1.0.8",
+    "@evam/compiler": "^1.0.9",
+    "@evam/components": "^1.0.9",
+    "@evam/generator": "^1.0.9",
+    "@evam/utils": "^1.0.9",
+    "generator-evam-tpl": "^1.0.9",
     "minimist": "^1.2.5"
   },
   "publishConfig": {
